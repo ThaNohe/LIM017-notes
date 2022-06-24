@@ -23,7 +23,6 @@ function NotesForm() {
     })
   }
 
-
 //Estados 
   const [notes, setNotes] = useState({initialState: null});
   /* const [notesDocs, setNotesDocs]= useState({initialState: null}) */
