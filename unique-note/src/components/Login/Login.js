@@ -4,31 +4,20 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../../context/authContext';
 
-
 /* import { Link } from 'react-router-dom'
 import { collection, getDocs, getDoc, deleteDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebaseConfig'
 import { useAuth } from '../../context/authContext'; */
 
  function Login () {
-    //uso de hooks y método useState
-   /* const [user, setUser] = useState({
-     email: '',
-     password: '',
-   }); */ 
+ 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(''); 
 
-/* const { login } = useContext(authContext)
- */   /* const { login } = useAuth()  */
    const navigate = useNavigate();
    const [error, setError] = useState(); 
 
    const contextValue = useContext(authContext)
-  
-  /*  const handleChange = ({target:{name, value}}) => 
-     setUser({...user,[name]: value})  */
-   
     const handleSubmit = (e) => {
      e.preventDefault()
      setError('') 
@@ -55,6 +44,12 @@ import { useAuth } from '../../context/authContext'; */
 
     }
 
+    const  handleGoogleSignin = (e) =>{
+      e.preventDefault()
+      contextValue.loginWithGoogle()
+      .then(() => navigate('/NotesForm'))
+    }
+
   return (
 <div className='Container-for'>
     <form className='Form-log' onSubmit={handleSubmit} >
@@ -69,8 +64,6 @@ import { useAuth } from '../../context/authContext'; */
       className='text-field' 
       placeholder='Email' 
       required
-      /* onChange={handleChange}  */
-      /* value = { email } */
      onChange={(e)=> setEmail(e.target.value)} 
       />
 
@@ -80,14 +73,13 @@ import { useAuth } from '../../context/authContext'; */
       className='text-field' 
       placeholder='Password' 
       required
-/*    onChange={handleChange}
- */   /* value= { password} */
        onChange={(e)=> setPassword(e.target.value)} 
       />
       <p>{error}</p>
 
       <div className='content-btn'>
       <button type='submit' id='btnRegister' className='button-components'>Ingresa </button>
+      <button onClick={handleGoogleSignin} /* className='button-components-h2' */> Ingresa con Google </button>
       </div>
     </form>
    </div>

@@ -15,10 +15,6 @@ function NotesForm() {
 
   const navigation = useNavigate()
 
-  /* const handleLogout = async () => {
-    await logout('/home')
-  } */
-
   const handleLogout = (e) =>{
     context.logout(email)
     .then(() => navigation('/home'))
@@ -54,11 +50,6 @@ const getNotesData = async () =>{
     saveNotes(notes)
     }
 
-  const navigateforHom = useNavigate() 
-    const btnforHom = () => {
-        navigateforHom('/Home'); 
-    }
-
   return (
     <div className='Container-for'>
       <h1 onChange={e => setEmail(e.target.value)}>Bienvenido {user} </h1>
@@ -68,8 +59,7 @@ const getNotesData = async () =>{
       onChange={ e => setNotes(e.target.value)}
       />
       <button onClick={btnsaveNotes} className='button-components'>Agregar Nota</button>
-      <button onClick={btnforHom} type='submit' id='btnHom' className='button-components'>Cerrar Sesión</button>
-      <button onClick={handleLogout}>Salir</button>
+      <button onClick={handleLogout} className='button-components'>Cerrar Sesión</button>
       </div>
     </div>
   )
