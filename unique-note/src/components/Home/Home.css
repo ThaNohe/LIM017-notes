@@ -1,5 +1,5 @@
 /*Tablet vertical*/
-@media only screen and (min-device-width: 810px)  {
+
     .Container-home{
         background-color:blanchedalmond;
         min-height: 100vh;
@@ -42,5 +42,14 @@
           color: #e8416b;
           font-size: 25px;
           border: lightcoral;
+      }
+      p{
+        text-align: center;
+      }
+
+/*Desktop */
+@media only screen and (min-device-width: 810px)  {
+    p{
+        margin-left:50px;
       }
 }

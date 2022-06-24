@@ -1,8 +1,9 @@
 import React from 'react';
 import './Register.css';
-import { useState } from 'react';
-import { useAuth } from '../../context/authContext'
+import { useState, useContext } from 'react';
+/* import { useAuth } from '../../context/authContext'*/
 import { useNavigate } from 'react-router-dom';
+import { authContext } from '../../context/authContext'
 
 /* import { Link } from 'react-router-dom'
 import { collection, getDocs, getDoc, deleteDoc } from 'firebase/firestore'
@@ -15,28 +16,44 @@ import { useAuth } from '../../context/authContext'; */
      email: '',
      password: '',
    });
-   const { signup } = useAuth()
+   /* const { signup } = useAuth() */ 
    const navigate = useNavigate();
    const [error, setError] = useState(); 
+
+   const contextValue = useContext(authContext)
 
 //Info de cada input sea capturada
    const handleChange = ({target:{name, value}}) => 
      setUser({...user,[name]: value})
    
-     
-    const handleSubmit = async e => {
+    const handleSubmit = (e) => {
      e.preventDefault();
      setError('')
-     try {
-      await signup(user.email, user.password);
-      navigate('/Login');
-     } catch (error) {
-       console.log(error.code);
-       
-     }   
+     contextValue.signup(user.email, user.password)
+     .then(()=>
+     navigate('/Login'))
+     .catch ((error)=> {
+      console.log(error.code);
+      switch(error.code){
+        case '':
+        setError('Campo vacío.Ingrese correo electrónico')
+        break;
+        case'auth/invalid-email':
+        setError('Correo inválido')
+        break;
+        case'auth/email-already-in-use':
+        setError('Correo en uso')
+        break;
+        case'auth/weak-password':
+        setError('Contraseña débil')
+        break;
+        default:setError('Otro error');
+      }
+   
+    }); 
+ 
    } 
   
-   
 
    return (
     <div className='Container-for'>
@@ -71,6 +88,8 @@ import { useAuth } from '../../context/authContext'; */
       required
       onChange={handleChange}
       />
+
+       <p>{error}</p>
 
       <div className='content-btn'>
       <button  type='submit' id='btnLog' className='button-components'>Registrate </button>

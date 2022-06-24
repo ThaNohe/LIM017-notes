@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { createMemoryHistory } from 'history';
 import React from 'react'
 import {Router} from 'react-router-dom'
-import Home from './components/Home/Home';
+import Home from './components/Home/Home.js';
 
 
  test('Home renderiza boton de iniciar sesion', async () => {
@@ -15,8 +15,8 @@ import Home from './components/Home/Home';
   </Router>,
   )
   const user = userEvent.setup()
-  expect(screen.getByText(/you are home/i)).toBeInTheDocument()
-  await user.click(screen.getByText(/about/i))
+  expect(screen.getByText(/Inicia Sesión/i)).toBeInTheDocument()
+  await user.click(screen.getByText(/login/i))
   });
 
 /* test('Comprobar que useNavigate funcione', () => {

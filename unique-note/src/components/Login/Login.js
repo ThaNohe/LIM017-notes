@@ -1,64 +1,64 @@
 import React from 'react';
 import './Login.css';
-import { useState } from 'react';
-import { useAuth } from '../../context/authContext'
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { authContext } from '../../context/authContext';
+
 
 /* import { Link } from 'react-router-dom'
 import { collection, getDocs, getDoc, deleteDoc } from 'firebase/firestore'
 import { db } from '../../lib/firebaseConfig'
 import { useAuth } from '../../context/authContext'; */
 
- function Login() {
-  
-  const [user, setUser] = useState({
+ function Login () {
+    //uso de hooks y método useState
+   const [user, setUser] = useState({
      email: '',
      password: '',
-   });
+   }); 
+  /* const [email, setEmail] = useState('');
+  const [password, setPassword] = useState(''); */
 
-   const { login } = useAuth()
+/* const { login } = useContext(authContext)
+ */   /* const { login } = useAuth()  */
    const navigate = useNavigate();
    const [error, setError] = useState(); 
 
+   const contextValue = useContext(authContext)
+  
    const handleChange = ({target:{name, value}}) => 
-     setUser({...user,[name]: value})
+     setUser({...user,[name]: value}) 
    
-    const handleSubmit = async (e) => {
-     e.preventDefault();
-     setError('')
-     try {
-      await login(user.email, user.password);
-      navigate('/NotesForm');
-     } catch (error) {
-       console.log(error.code);
-/*        const wrongInput = divElement.querySelector('.error');
- */       switch (error.code) {
+    const handleSubmit = (e) => {
+     e.preventDefault()
+     setError('') 
+     contextValue.login(user.email, user.password) 
+     .then((response)=>
+     navigate('/NotesForm'))
+     .catch ((error)=> {
+       console.log(error.code,'imp error login');
+       switch(error.code){
         case '':
-          /* error-message = 'Correo invalido'; */
-          setError('Campo vacio')
-          break;
+            setError('Campos vacíos.Ingrese correo y contraseña');
+            break;
+        case 'auth/user-not-found':
+            setError('Usuario no registrado');
+            break;
+        case 'auth/wrong-password':
+            setError('Contraseña inválida.Intente nuevamente');
+            break;
         case 'auth/invalid-email':
-          setError('Correo inválido') 
-          break;
-        case 'auth/email-already-in-use':
-          setError('Correo ya registrado')
-          break;
-        default:
-      }
+            setError('Ingrese un correo válido');
+        break;
+        default:setError ('Otro error');
+    }
+      });
 
-       /* if(error.code === 'auth/internal-error'){
-         setError('Correo invalido')} */
-         /* if(error.code === 'auth/user-not-found'){
-          setError('Correo invalido');
-          console.log(setError)
-        } */
-       }
-     }   
-    
+    }
 
   return (
 <div className='Container-for'>
-    <form className='Form-log'  onSubmit={handleSubmit}  >
+    <form className='Form-log' onSubmit={handleSubmit} >
       <img 
       className='Img-register' src={require('../../img/post3.png')}
       alt='Img Notes'/>
@@ -70,7 +70,9 @@ import { useAuth } from '../../context/authContext'; */
       className='text-field' 
       placeholder='Email' 
       required
-      onChange={handleChange}
+      /* value = { email } */
+      onChange={handleChange} 
+     /*  onChange={(e)=> setEmail(e.target.value)} */
       />
 
       <input 
@@ -79,17 +81,17 @@ import { useAuth } from '../../context/authContext'; */
       className='text-field' 
       placeholder='Password' 
       required
-      onChange={handleChange}
+      /* value= { password} */
+      onChange={handleChange} 
+      /* onChange={(e)=> setPassword(e.target.value)} */
       />
-      <p className='error-message'></p>
-
+      <p>{error}</p>
 
       <div className='content-btn'>
       <button type='submit' id='btnRegister' className='button-components'>Ingresa </button>
       </div>
-    
     </form>
-    </div>
+   </div>
   );
-}
+};
 export default Login
