@@ -8,18 +8,12 @@ import { auth } from '../firebase/firebaseConfig'
 
 export const authContext = createContext();
 
-export const useAuth = () => {
-    const context = useContext(authContext)
-    return context
-}
+export const useAuth = () => useContext(authContext)
+  
 
 export function AuthProvider ({children}) {
     const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password);
-    const login = (email, password ) => {
-        /* const userCredentials =  */
-        signInWithEmailAndPassword(auth, email, password);
-       /*  console.log(userCredentials); */
-    }
+    const login = (email, password ) => signInWithEmailAndPassword(auth, email, password);
     
      const logout = () => signOut(auth)
       /* console.log(logout);  */

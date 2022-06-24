@@ -12,12 +12,12 @@ import { useAuth } from '../../context/authContext'; */
 
  function Login () {
     //uso de hooks y método useState
-   const [user, setUser] = useState({
+   /* const [user, setUser] = useState({
      email: '',
      password: '',
-   }); 
-  /* const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); */
+   }); */ 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState(''); 
 
 /* const { login } = useContext(authContext)
  */   /* const { login } = useAuth()  */
@@ -26,15 +26,14 @@ import { useAuth } from '../../context/authContext'; */
 
    const contextValue = useContext(authContext)
   
-   const handleChange = ({target:{name, value}}) => 
-     setUser({...user,[name]: value}) 
+  /*  const handleChange = ({target:{name, value}}) => 
+     setUser({...user,[name]: value})  */
    
     const handleSubmit = (e) => {
      e.preventDefault()
      setError('') 
-     contextValue.login(user.email, user.password) 
-     .then((response)=>
-     navigate('/NotesForm'))
+     contextValue.login(email, password) 
+     .then(()=> navigate('/NotesForm'))
      .catch ((error)=> {
        console.log(error.code,'imp error login');
        switch(error.code){
@@ -70,9 +69,9 @@ import { useAuth } from '../../context/authContext'; */
       className='text-field' 
       placeholder='Email' 
       required
+      /* onChange={handleChange}  */
       /* value = { email } */
-      onChange={handleChange} 
-     /*  onChange={(e)=> setEmail(e.target.value)} */
+     onChange={(e)=> setEmail(e.target.value)} 
       />
 
       <input 
@@ -81,9 +80,9 @@ import { useAuth } from '../../context/authContext'; */
       className='text-field' 
       placeholder='Password' 
       required
-      /* value= { password} */
-      onChange={handleChange} 
-      /* onChange={(e)=> setPassword(e.target.value)} */
+/*    onChange={handleChange}
+ */   /* value= { password} */
+       onChange={(e)=> setPassword(e.target.value)} 
       />
       <p>{error}</p>
 
