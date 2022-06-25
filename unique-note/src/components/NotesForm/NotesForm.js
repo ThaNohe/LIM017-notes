@@ -51,7 +51,7 @@ const getNotesData = async () =>{
 
   return (
     <div className='Container-for'>
-      <h1 onChange={e => setEmail(e.target.value)}>Bienvenido {user} </h1>
+      <h1 onChange={e => setEmail(e.target.value)}> Hola 👋 {user} </h1>
     <div className='content-btn'>
       <input
       type='text'
