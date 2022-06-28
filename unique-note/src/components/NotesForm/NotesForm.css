@@ -1,17 +1,39 @@
-.Container-for{
-    background-image: url('../../img/fondo.png');
-    height: 100vh;
+.Container-Gen{
+    background-image: url('../../img/fondo.png'); 
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
 }
+
+.Container-WelcomeUser{
+width:700px;
+height: 10px;
+position:absolute;
+font-size: 12px;
+margin-top: 35px;
+}
+
+.Container-InputNotes{
+    /* position:relative; */
+    width: 300px;
+    height: 400px;
+    padding: 35px; 
+    background:#f5bacc ;
+    /* background: transparent;
+    border: 3px solid #fff; */ 
+    margin-top: 120px;
+    border-radius: 30px; 
+} 
 
 input.titleNote{
     width: 300px;
     height: 60px;
-    border-radius: 50px;
+    border-radius: 15px;
     /* box-shadow: inset 0px 0px 25px 0px rgb(174, 169, 169); */
     border: none;
     outline: none;
     font-size: 25px;
-    background-color: rgb(159, 231, 100);
+    background-color: #FFF89A;
     margin-top: 40px;
     text-align: center;
     font-family: 'Righteous', cursive;;
@@ -20,19 +42,39 @@ input.titleNote{
 .textareaNote {
     
     width:300px;
-    height: 90px;
+    height: 230px;
     border-radius: 15px;
-    background-color: rgb(192, 231, 147);
-    margin-top: 40px;
-    margin-left: 3vmin;
+    background-color: #FFF89A;
+    margin-top: 10px;
+    margin-left: 0vmin;
     font-size: 25px;
     text-align: center;
     font-family: 'Righteous', cursive;;
 }
 
+.Container-PrintNotes{
+    background-color:#f5bacc;
+    width: 300px;
+    padding: 35px;
+    height: 690px;
+    margin-left: 35px;
+    margin-top: 120px;
+    border-radius: 30px;
+}
+
+.titleList{
+    text-align: center;
+    margin-top: -350px; 
+    font-family: 'Righteous', cursive;
+    font-size: 22px;
+}
+
 .Img-logout{
     width: 10vmin;
-    margin-left: 1vmin;
+    margin-left: 30vmin;
+    margin-top: 110px;
+    height: 50px;
+    width: 50px;
 }
 
 .button-components-logout{
@@ -41,23 +83,50 @@ margin-left: 70vmin;
 display: flex;
 justify-content: space-between;
 align-items:center;
-height: 40px;
-width: 30px;
+height: 20px;
+width: 10px;
 font-family: 'Righteous', cursive;
 }
 
+.btn-saveNotes{
+    text-align: center;
+}
 .button-components-saveNotes{
     width: 200px;
     height: 50px;
     border-radius: 60px;
-    background-color: #e78747;;
+    background-color: #e8416b;;
     color: white;
     font-size: 20px;
     border: none;
-    margin-left: 3vmin;
+    margin-top: 10px;
+    text-align: center;
+    justify-content:center;
     font-family: 'Righteous', cursive;
 }
 .btn-position{
     display: flex;
     justify-content:center;
+}
+.btn-borrar{
+    width:55px;
+    height: 25px;
+    border-radius: 20px;
+    background-color:rgb(239, 15, 60);
+    color: white;
+    font-size: 14px;
+    border: none;
+    font-family: 'Righteous', cursive;
+}
+
+.btn-editar{
+    width:55px;
+    height: 25px;
+    border-radius: 20px;
+    background-color:rgb(22, 137, 64);
+    color: white;
+    font-size: 14px;
+    border: none;
+    font-family: 'Righteous', cursive;
+    margin-left: 5px;
 }

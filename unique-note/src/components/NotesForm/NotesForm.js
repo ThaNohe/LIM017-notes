@@ -83,27 +83,38 @@ const getNotesData = async () =>{
 
   //Funcion para renderizar lista de notas
   useEffect(() => {
-    const getList = async()=>{
+    const getList = async () => {
       try {
-        const querySnapshot= await getDocs(collection(db, "notesGenerate"))
-        const docs = []
-        querySnapshot.forEach((doc)=>{
-          docs.push({...doc.data(), id:doc.id})
-        })
-        setList(docs)
+        const querySnapshot = await getDocs(collection(db, "notesGenerate"));
+        const docs = [];
+        querySnapshot.forEach((doc) => {
+          docs.push({ ...doc.data(), id: doc.id });
+        });
+        setList(docs);
       } catch (error) {
         /* console.log(error) */
       }
-    }
-    getList()
-  }, [list])
+    };
+    getList();
+  }, [list]);
 
   return (
-    <div className="Container-for">
-      <div>
+    <div className="Container-Gen">
+      <div className="Container-WelcomeUser">
         <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión </h1>
       </div>
-      <div>
+      <div className="Container-InputNotes">
+        <div className="btn-position">
+          <button onClick={handleLogout} className="button-components-logout">
+            {
+              <img
+                className="Img-logout"
+                src={require("../../img/logOut.png")}
+                alt="Img salir"
+              />
+            }
+          </button>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
             <input
@@ -118,39 +129,30 @@ const getNotesData = async () =>{
             <textarea
               className="textareaNote"
               name="description"
-              placeholder="Escribe una nota"
+              placeholder="Escribe una nota..."
               onChange={handleInputChange}
               value={dataInputs.description}
             ></textarea>
           </div>
-          {/* <button onClick={btnsaveNotes} className='button-components'>Agregar Nota</button> */}
-          <button className="button-components-saveNotes"> Guardar </button>
+          <div className="btn-saveNotes">
+            <button className="button-components-saveNotes"> Guardar </button>
+            </div>
         </form>
-        <div className="btn-position">
-          <button onClick={handleLogout} className="button-components-logout">
-            {
-              <img
-                className="Img-logout"
-                src={require("../../img/logOut.png")}
-                alt="Img salir"
-              />
-            }
-          </button>
-        </div>
       </div>
-      <div className="Container-notes">
+
+      <div className="Container-PrintNotes">
+        <div className="titleList">
         <h2>Lista de Notas</h2>
+        </div>
         <div>
-          {list.map(list => (
+          {list.map((list) => (
             <div key={list.id}>
               <p>Author:{list.author}</p>
               <p>Titulo:{list.notestitle}</p>
               <p>Descripcion:{list.description}</p>
 
-              <button>Borrar</button>
-              <button>Editar</button>
-              <hr/>
-
+              <button className="btn-borrar">Borrar</button>
+              <button className="btn-editar">Editar</button>
             </div>
           ))}
         </div>
