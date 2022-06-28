@@ -1,38 +1,50 @@
-import { addDoc, collection, getDocs, query } from 'firebase/firestore';
-import React from 'react'
-import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth, db } from '../../firebase/firebaseConfig';
-import { authContext } from '../../context/authContext';
-import './NotesForm.css'
-
-
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  getDoc,
+  setDoc,
+  doc,
+} from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+import { authContext } from "../../context/authContext";
+import "./NotesForm.css";
 
 function NotesForm() {
-  let user = auth.currentUser.email;
-  const[email, setEmail] = useState()
-  const context = useContext(authContext)
+  const [email, setEmail] = useState();
+  const context = useContext(authContext);
 
-  const navigation = useNavigate()
+  const inicializeDataInputs = {
+    notestitle: "",
+    description: "",
+    author: localStorage.getItem("email"),
+  };
+  //Variables de estado
+  const [dataInputs, setDataInputs] = useState(inicializeDataInputs);
+  const [list, setList] = useState([]);
 
-  const handleLogout = (e) =>{
-    context.logout(email)
-    .then(() => navigation('/home'))
-    .catch((error) => {
-      console.log(error.code)
-    })
-  }
+  //Funciones para logout
+  const navigation = useNavigate();
+  const handleLogout = (e) => {
+    context
+      .logout(email)
+      .then(() => navigation("/home"))
+      .catch((error) => {
+        console.log(error.code);
+      });
+  };
+  //Estados 27
+  /*   const [notes, setNotes] = useState({initialState: null});
+   */ /* const [notesDocs, setNotesDocs]= useState({initialState: null}) */
 
-//Estados 
-  const [notes, setNotes] = useState({initialState: null});
-  /* const [notesDocs, setNotesDocs]= useState({initialState: null}) */
- 
-//Creacion de la coleccion
-  const saveNotes = (note) => {
+  //Creacion de la coleccion 31 32
+  /* const saveNotes = (note) => {
 addDoc(collection(db, 'noteswrite'), {note});
-  }
-// Consulta a la base de datos
-/* const getNotes = getDocs(query(collection(db, 'noteswrite')))
+  } */
+  // Consulta a la base de datos
+  /* const getNotes = getDocs(query(collection(db, 'noteswrite')))
 
 useEffect( () => {
 getNotesData()
@@ -44,24 +56,107 @@ const getNotesData = async () =>{
   setNotesDocs(n) 
 } */
 
-//Boton que envía nota a cloudfirestore
-  const btnsaveNotes = () => {
+  //Boton que envía nota a cloudfirestore 48 49 50
+  /* const btnsaveNotes = () => {
     saveNotes(notes)
+    } */
+  //Funcion para resetear info luego de enviarla;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    /* console.log(dataInputs); */
+    try {
+      await addDoc(collection(db, "notesGenerate"), {
+        ...dataInputs,
+      });
+    } catch (error) {
+      console.log(error);
     }
+    setDataInputs({ ...inicializeDataInputs });
+  };
+
+  //Funcion para capturar data de inputs
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setDataInputs({ ...dataInputs, [name]: value });
+    /* console.log(name, value) */
+  };
+
+  //Funcion para renderizar lista de notas
+  useEffect(() => {
+    const getList = async()=>{
+      try {
+        const querySnapshot= await getDocs(collection(db, "notesGenerate"))
+        const docs = []
+        querySnapshot.forEach((doc)=>{
+          docs.push({...doc.data(), id:doc.id})
+        })
+        setList(docs)
+      } catch (error) {
+        /* console.log(error) */
+      }
+    }
+    getList()
+  }, [list])
 
   return (
-    <div className='Container-for'>
-      <h1 onChange={e => setEmail(e.target.value)}> Hola 👋 {user} </h1>
-    <div className='content-btn'>
-      <input
-      type='text'
-      onChange={ e => setNotes(e.target.value)}
-      />
-      <button onClick={btnsaveNotes} className='button-components'>Agregar Nota</button>
-      <button onClick={handleLogout} className='button-components'>Cerrar Sesión</button>
+    <div className="Container-for">
+      <div>
+        <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión </h1>
+      </div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input
+              className="titleNote"
+              type="text"
+              name="notestitle"
+              placeholder="Titulo de la  nota"
+              onChange={handleInputChange}
+              value={dataInputs.notestitle}
+              /* onChange={ e => setNotes(e.target.value)} */
+            />
+            <textarea
+              className="textareaNote"
+              name="description"
+              placeholder="Escribe una nota"
+              onChange={handleInputChange}
+              value={dataInputs.description}
+            ></textarea>
+          </div>
+          {/* <button onClick={btnsaveNotes} className='button-components'>Agregar Nota</button> */}
+          <button className="button-components-saveNotes"> Guardar </button>
+        </form>
+        <div className="btn-position">
+          <button onClick={handleLogout} className="button-components-logout">
+            {
+              <img
+                className="Img-logout"
+                src={require("../../img/logOut.png")}
+                alt="Img salir"
+              />
+            }
+          </button>
+        </div>
+      </div>
+      <div className="Container-notes">
+        <h2>Lista de Notas</h2>
+        <div>
+          {list.map(list => (
+            <div key={list.id}>
+              <p>Author:{list.author}</p>
+              <p>Titulo:{list.notestitle}</p>
+              <p>Descripcion:{list.description}</p>
+
+              <button>Borrar</button>
+              <button>Editar</button>
+              <hr/>
+
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default NotesForm
+export default NotesForm;

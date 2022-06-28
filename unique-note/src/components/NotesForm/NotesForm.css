@@ -3,13 +3,61 @@
     height: 100vh;
 }
 
-input{
+input.titleNote{
     width: 300px;
     height: 60px;
-    border-radius: 40px;
-    box-shadow: inset 0px 0px 25px 0px #888;
+    border-radius: 50px;
+    /* box-shadow: inset 0px 0px 25px 0px rgb(174, 169, 169); */
     border: none;
     outline: none;
     font-size: 25px;
-    background-color: #fff;
+    background-color: rgb(159, 231, 100);
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'Righteous', cursive;;
+}
+
+.textareaNote {
+    
+    width:300px;
+    height: 90px;
+    border-radius: 15px;
+    background-color: rgb(192, 231, 147);
+    margin-top: 40px;
+    margin-left: 3vmin;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Righteous', cursive;;
+}
+
+.Img-logout{
+    width: 10vmin;
+    margin-left: 1vmin;
+}
+
+.button-components-logout{
+margin-top: -20vmin;
+margin-left: 70vmin;
+display: flex;
+justify-content: space-between;
+align-items:center;
+height: 40px;
+width: 30px;
+font-family: 'Righteous', cursive;
+}
+
+.button-components-saveNotes{
+    width: 200px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: #e78747;;
+    color: white;
+    font-size: 20px;
+    border: none;
+    margin-left: 3vmin;
+    font-family: 'Righteous', cursive;
+}
+.btn-position{
+    display: flex;
+    justify-content:center;
 }

@@ -22,7 +22,9 @@ import { useAuth } from '../../context/authContext'; */
      e.preventDefault()
      setError('') 
      contextValue.login(email, password) 
-     .then(()=> navigate('/NotesForm'))
+     .then((user)=> {
+      localStorage.setItem('email',user.user.email)
+      navigate('/NotesForm')})
      .catch ((error)=> {
        console.log(error.code,'imp error login');
        switch(error.code){
@@ -47,7 +49,9 @@ import { useAuth } from '../../context/authContext'; */
     const  handleGoogleSignin = (e) =>{
       e.preventDefault()
       contextValue.loginWithGoogle()
-      .then(() => navigate('/NotesForm'))
+      .then((user) => { 
+        localStorage.setItem('email',user.user.email)
+        navigate('/NotesForm')})
     }
 
   return (
