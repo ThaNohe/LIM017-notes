@@ -66,7 +66,7 @@ import { useAuth } from '../../context/authContext'; */
       type='email' 
       name='email'
       className='text-field' 
-      placeholder='Email' 
+      placeholder='📧@Email' 
       required
      onChange={(e)=> setEmail(e.target.value)} 
       />
@@ -75,15 +75,26 @@ import { useAuth } from '../../context/authContext'; */
       type='password'
       name='password'
       className='text-field' 
-      placeholder='Password' 
+      placeholder='🔒Password' 
       required
        onChange={(e)=> setPassword(e.target.value)} 
       />
       <p>{error}</p>
 
       <div className='content-btn'>
-      <button type='submit' id='btnRegister' className='button-components'>Ingresa </button>
-      <button onClick={handleGoogleSignin} /* className='button-components-h2' */> Ingresa con Google </button>
+        <div className='btn-ingresar'>
+        <button type='submit' id='btnRegister' className='button-components'>Ingresa</button>
+        </div>
+      <div className='btn-google'>
+      <button onClick={handleGoogleSignin} className='button-google'> 
+      Continue con Google
+      {<img
+        className="Img-google"
+        src={require("../../img/google.png")}
+        alt="Img google"
+              />}
+      </button>
+      </div>
       </div>
     </form>
    </div>

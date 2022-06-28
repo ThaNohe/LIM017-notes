@@ -66,7 +66,7 @@ import { useAuth } from '../../context/authContext'; */
       type='text'
       name='text' 
       className='text-field' 
-      placeholder='Nombre' 
+      placeholder='🎎Nombre' 
       required
       onChange={handleChange}
       />
@@ -75,7 +75,7 @@ import { useAuth } from '../../context/authContext'; */
       type='email' 
       name='email'
       className='text-field' 
-      placeholder='Email' 
+      placeholder='📧@Email' 
       required
       onChange={handleChange}
       />
@@ -84,7 +84,7 @@ import { useAuth } from '../../context/authContext'; */
       type='password'
       name='password'
       className='text-field' 
-      placeholder='Password' 
+      placeholder='🔒Password' 
       required
       onChange={handleChange}
       />
