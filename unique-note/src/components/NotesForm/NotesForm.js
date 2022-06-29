@@ -35,45 +35,19 @@ function NotesForm() {
         console.log(error.code);
       });
   };
-  //Estados 27
-  /*   const [notes, setNotes] = useState({initialState: null});
-   */ /* const [notesDocs, setNotesDocs]= useState({initialState: null}) */
 
-  //Creacion de la coleccion 31 32
-  /* const saveNotes = (note) => {
-addDoc(collection(db, 'noteswrite'), {note});
-  } */
-  // Consulta a la base de datos
-  /* const getNotes = getDocs(query(collection(db, 'noteswrite')))
-
-useEffect( () => {
-getNotesData()
-}, [])
-
-const getNotesData = async () =>{
-  const n = await getNotes();
-  console.log(n);
-  setNotesDocs(n) 
-} */
-
-  //Boton que envía nota a cloudfirestore 48 49 50
-  /* const btnsaveNotes = () => {
-    saveNotes(notes)
-    } */
   //Funcion para resetear info luego de enviarla;
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    /* console.log(dataInputs); */
-    try {
-      await addDoc(collection(db, "notesGenerate"), {
-        ...dataInputs,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  const saveNotes = async (e) => {
+    e.preventDefault()
+    await addDoc(collection(db, "notesGenerate"), 
+    {...dataInputs,
+    }).then((response) => {
+    console.log(response)
     setDataInputs({ ...inicializeDataInputs });
-  };
-
+    getList()
+    })
+  }
+  
   //Funcion para capturar data de inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -82,21 +56,23 @@ const getNotesData = async () =>{
   };
 
   //Funcion para renderizar lista de notas
+  const getList = async () => {
+    try {
+      console.log("holaaaaaaaaaa");
+      const querySnapshot = await getDocs(collection(db, "notesGenerate"));
+      const docs = [];
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setList(docs);
+    } catch (error) {
+      /* console.log(error) */
+    }
+  };
   useEffect(() => {
-    const getList = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "notesGenerate"));
-        const docs = [];
-        querySnapshot.forEach((doc) => {
-          docs.push({ ...doc.data(), id: doc.id });
-        });
-        setList(docs);
-      } catch (error) {
-        /* console.log(error) */
-      }
-    };
+    
     getList();
-  }, [list]);
+  }, []);
 
   return (
     <div className="Container-Gen">
@@ -115,7 +91,7 @@ const getNotesData = async () =>{
             }
           </button>
         </div>
-        <form onSubmit={handleSubmit}>
+      
           <div>
             <input
               className="titleNote"
@@ -135,9 +111,9 @@ const getNotesData = async () =>{
             ></textarea>
           </div>
           <div className="btn-saveNotes">
-            <button className="button-components-saveNotes"> Guardar </button>
+          <button onClick={(e) =>saveNotes(e)} className="button-components-saveNotes"> Guardar </button>
             </div>
-        </form>
+        
       </div>
 
       <div className="Container-PrintNotes">
