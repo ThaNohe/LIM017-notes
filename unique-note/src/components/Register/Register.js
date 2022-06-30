@@ -61,7 +61,7 @@ import { useAuth } from '../../context/authContext'; */
       <img 
       className='Img-register' src={require('../../img/post3.png')}
       alt='Img Notes'/>
-      <h1 className='title-div'>Registrate</h1>
+      <h1 className='title-div'>Registrese</h1>
       <input 
       type='text'
       name='text' 

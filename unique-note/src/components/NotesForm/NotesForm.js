@@ -108,7 +108,7 @@ function NotesForm() {
               placeholder="Escribe una nota..."
               onChange={handleInputChange}
               value={dataInputs.description}
-            ></textarea>
+            ></textarea>F
           </div>
           <div className="btn-saveNotes">
           <button onClick={(e) =>saveNotes(e)} className="button-components-saveNotes"> Guardar </button>
