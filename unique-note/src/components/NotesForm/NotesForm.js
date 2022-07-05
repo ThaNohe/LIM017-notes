@@ -8,6 +8,7 @@ import {
   setDoc,
   doc,
   deleteDoc,
+  updateDoc
 } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { authContext } from "../../context/authContext";
@@ -26,6 +27,7 @@ function NotesForm() {
   const [dataInputs, setDataInputs] = useState(inicializeDataInputs);
   const [list, setList] = useState([]);
   const [postNote, setPostNote] = useState('');
+  const [updatingNote, setUpdatingNote] = useState(false)
 
   //Funciones para logout
   const navigation = useNavigate();
@@ -50,6 +52,16 @@ function NotesForm() {
     })
   }
   
+  const updateNote =  async(e) =>{
+    e.preventDefault()
+    updateDoc(doc(db,'notesGenerate', dataInputs.id),{
+    ...dataInputs})
+    .then((response) =>{
+      setDataInputs({ ...inicializeDataInputs })})
+    getList() 
+  }
+
+
   //Funcion para capturar data de inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -60,7 +72,7 @@ function NotesForm() {
   //Funcion para renderizar lista de notas
   const getList = async () => {
     try {
-      console.log("holaaaaaaaaaa");
+      /* console.log("holaaaaaaaaaa"); */
       const querySnapshot = await getDocs(collection(db, 'notesGenerate'));
       const docs = [];
       querySnapshot.forEach((doc) => {
@@ -84,22 +96,19 @@ await deleteDoc(doc(db,'notesGenerate', id))
   }
 
 const getPostNote = async(id) => {
-  try{
-    const docRef = doc(db, 'notesGenerate',id)
-//Almacen de petición 
-    const docSnap = await getDoc(docRef)
-    setDataInputs(docSnap.data())
-    
-  }catch (error){
-    console.log(error)
-  }
+  list.forEach(note =>{
+    if(note.id===id){
+      setDataInputs(note)
+      setUpdatingNote(true)
+    }
+  })
 }
 
 useEffect(() => {
 if(postNote !== '') {
   getPostNote(postNote)
 }
-},[postNote])
+},[]) 
 
   return (
     <div className="Container-Gen">
@@ -135,10 +144,15 @@ if(postNote !== '') {
               placeholder="Escribe una nota..."
               onChange={handleInputChange}
               value={dataInputs.description}
-            ></textarea>F
+            ></textarea>
           </div>
           <div className="btn-saveNotes">
-          <button onClick={(e) =>saveNotes(e)} className="button-components-saveNotes"> Guardar </button>
+            {
+              updatingNote 
+              ? <button onClick={(e) =>updateNote(e)} className="button-components-saveNotes"> Editar </button>
+              :  <button onClick={(e) =>saveNotes(e)} className="button-components-saveNotes"> Guardar </button>
+            }
+         
             </div>
         
       </div>
