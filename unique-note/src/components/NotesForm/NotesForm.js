@@ -7,6 +7,7 @@ import {
   getDoc,
   setDoc,
   doc,
+  deleteDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { authContext } from "../../context/authContext";
@@ -24,6 +25,7 @@ function NotesForm() {
   //Variables de estado
   const [dataInputs, setDataInputs] = useState(inicializeDataInputs);
   const [list, setList] = useState([]);
+  const [postNote, setPostNote] = useState('');
 
   //Funciones para logout
   const navigation = useNavigate();
@@ -36,7 +38,7 @@ function NotesForm() {
       });
   };
 
-  //Funcion para resetear info luego de enviarla;
+  //Funcion para guardar y actualizar datos 
   const saveNotes = async (e) => {
     e.preventDefault()
     await addDoc(collection(db, "notesGenerate"), 
@@ -59,7 +61,7 @@ function NotesForm() {
   const getList = async () => {
     try {
       console.log("holaaaaaaaaaa");
-      const querySnapshot = await getDocs(collection(db, "notesGenerate"));
+      const querySnapshot = await getDocs(collection(db, 'notesGenerate'));
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
@@ -70,9 +72,34 @@ function NotesForm() {
     }
   };
   useEffect(() => {
-    
     getList();
   }, []);
+
+  //Funcion para eliminar usuario
+const deleteUser = async(id) =>{
+await deleteDoc(doc(db,'notesGenerate', id))
+.then(() =>{
+  getList()
+})
+  }
+
+const getPostNote = async(id) => {
+  try{
+    const docRef = doc(db, 'notesGenerate',id)
+//Almacen de petición 
+    const docSnap = await getDoc(docRef)
+    setDataInputs(docSnap.data())
+    
+  }catch (error){
+    console.log(error)
+  }
+}
+
+useEffect(() => {
+if(postNote !== '') {
+  getPostNote(postNote)
+}
+},[postNote])
 
   return (
     <div className="Container-Gen">
@@ -121,14 +148,14 @@ function NotesForm() {
         <h2>Lista de Notas</h2>
         </div>
         <div>
-          {list.map((list) => (
-            <div key={list.id}>
-              <p>Author:{list.author}</p>
-              <p>Titulo:{list.notestitle}</p>
-              <p>Descripcion:{list.description}</p>
+          {list.map((listes) => (
+            <div key={listes.id}>
+              <p>Author:{listes.author}</p>
+              <p>Titulo:{listes.notestitle}</p>
+              <p>Descripcion:{listes.description}</p>
 
-              <button className="btn-borrar">Borrar</button>
-              <button className="btn-editar">Editar</button>
+              <button className="btn-borrar" onClick ={() =>deleteUser(listes.id)}>Borrar</button>
+              <button className="btn-editar" onClick ={() =>getPostNote(listes.id)}>Editar</button>
             </div>
           ))}
         </div>
