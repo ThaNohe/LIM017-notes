@@ -15,12 +15,12 @@
     .Img-title{
         width: 70vmin;
         margin-left: 14vmin;
-        margin-top: -45vmin;
     }
 
     .Img-home{
         width: 70vmin;
         margin-left: 14vmin;
+        margin-top: 70px;
     }
 
     .button-components-h1{
@@ -31,7 +31,8 @@
           color: white;
           font-size: 25px;
           border: none;
-          margin-left: 20vmin;
+          margin-left: 25vmin;
+          margin-top: 40px;
       }
 
       .button-components-h2{
@@ -45,6 +46,7 @@
       }
       p{
         text-align: center;
+        margin-top: 40px;
       }
 
 /*Desktop */

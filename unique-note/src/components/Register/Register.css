@@ -1,17 +1,5 @@
 /*Tablet vertical*/
 @media only screen and (min-device-width: 810px)  {
-/* .Container-intro{
-    margin-top: 45vmin;
-    padding: 0;
-    width: 45vw;
-} */
-/* h2{
-    margin-top: 45vmin;
-} */
-  /* .Container-form{
-    width: 45vw;
-}   */ 
-
 .Container-for{
     background-image: url('../../img/fondo.png');
     height: 100vh;
@@ -30,8 +18,8 @@
   color: var(--color-border);
   box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
   text-align: center;
-  margin-top: 150px;
-  margin-left: 150px;
+  margin-top: 250px;
+  margin-left: 175px;
   position:absolute;
 }
 

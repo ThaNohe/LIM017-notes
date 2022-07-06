@@ -22,9 +22,9 @@ function Home() {
       <img 
       className='Img-home' src={require('../../img/post5.png')}
       alt='Img newpostit'/>
-      <p>Un bloc de notas a tu alcance
-          ¡Toma nota ahora!
-        </p>
+       <p>Un bloc de notas a tu alcance <br/>
+         ¡Toma nota ahora!
+      </p>
         <div className='content-btn'>
       <button onClick={btnforLog} type='submit' id='btnLog' className='button-components-h1'>Inicia Sesión </button>
       <button onClick={btnforReg} type='submit' id='btnReg' className='button-components-h2'>Registrarse </button>

@@ -9,13 +9,14 @@
 width:700px;
 height: 10px;
 position:absolute;
-font-size: 12px;
+font-size: 8.5px;
 margin-top: 35px;
+text-align: center;
 }
 
 .Container-InputNotes{
     /* position:relative; */
-    width: 300px;
+    width: 190px;
     height: 400px;
     padding: 35px; 
     background:#f5bacc ;
@@ -26,55 +27,55 @@ margin-top: 35px;
 } 
 
 input.titleNote{
-    width: 300px;
+    width: 190px;
     height: 60px;
     border-radius: 15px;
     /* box-shadow: inset 0px 0px 25px 0px rgb(174, 169, 169); */
     border: none;
     outline: none;
-    font-size: 25px;
+    font-size: 20px;
     background-color: #FFF89A;
-    margin-top: 40px;
+    margin-top: 12px;
     text-align: center;
     font-family: 'Righteous', cursive;;
 }
 
 .textareaNote {
     
-    width:300px;
+    width:190px;
     height: 230px;
     border-radius: 15px;
     background-color: #FFF89A;
     margin-top: 10px;
     margin-left: 0vmin;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     font-family: 'Righteous', cursive;;
 }
 
 .Container-PrintNotes{
     background-color:#f5bacc;
-    width: 300px;
+    width: 210px;
     padding: 35px;
-    height: 690px;
-    margin-left: 35px;
+    height: 700px;
+    margin-left: 20px;
     margin-top: 120px;
     border-radius: 30px;
 }
 
 .titleList{
     text-align: center;
-    margin-top: -350px; 
+    margin-top: -390px; 
     font-family: 'Righteous', cursive;
-    font-size: 22px;
+    font-size: 15px;
 }
 
 .Img-logout{
-    width: 10vmin;
-    margin-left: 30vmin;
-    margin-top: 110px;
-    height: 50px;
-    width: 50px;
+    width: 15vmin;
+    margin-left: 15vmin;
+    margin-top: 120px;
+    height: 30px;
+    width: 30px;
 }
 
 .button-components-logout{
@@ -107,6 +108,15 @@ font-family: 'Righteous', cursive;
 .btn-position{
     display: flex;
     justify-content:center;
+}
+
+p{
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 35px;
+    font-family: 'Righteous', cursive;
+    font-size: 12px; 
+    line-height: 0.5;
 }
 .btn-borrar{
     width:55px;

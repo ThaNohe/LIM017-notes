@@ -113,7 +113,7 @@ if(postNote !== '') {
   return (
     <div className="Container-Gen">
       <div className="Container-WelcomeUser">
-        <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión </h1>
+        <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión</h1>
       </div>
       <div className="Container-InputNotes">
         <div className="btn-position">
@@ -129,6 +129,9 @@ if(postNote !== '') {
         </div>
       
           <div>
+          <div className="titleList">
+            <h2>Escribe una nota</h2>
+          </div>
             <input
               className="titleNote"
               type="text"
@@ -164,7 +167,7 @@ if(postNote !== '') {
         <div>
           {list.map((listes) => (
             <div key={listes.id}>
-              <p>Author:{listes.author}</p>
+              {/* <p>Author:{listes.author}</p> */}
               <p>Titulo:{listes.notestitle}</p>
               <p>Descripcion:{listes.description}</p>
 

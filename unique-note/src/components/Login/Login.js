@@ -66,7 +66,7 @@ import { useAuth } from '../../context/authContext'; */
       type='email' 
       name='email'
       className='text-field' 
-      placeholder='📧@Email' 
+      placeholder='📧Correo Electrónico' 
       required
      onChange={(e)=> setEmail(e.target.value)} 
       />
