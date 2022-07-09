@@ -1,5 +1,11 @@
 /*Tablet vertical*/
-@media only screen and (min-device-width: 810px) and (max-width: 1180px) {
+@media only screen and (min-width: 810px) /* and (max-width: 1180px) */ {
+  .Container-for{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .Container-intro {
     margin-top: 45vmin;
     padding: 0;
@@ -23,8 +29,6 @@
     border-radius: 60px;
     box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
     text-align: center;
-    margin-top: 250px;
-    margin-left: 175px;
     position: absolute;
   }
 

@@ -3,6 +3,9 @@
 .Container-for{
     background-image: url('../../img/fondo.png');
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .Form-reg{
   margin: auto;
@@ -18,8 +21,6 @@
   color: var(--color-border);
   box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);
   text-align: center;
-  margin-top: 250px;
-  margin-left: 175px;
   position:absolute;
 }
 

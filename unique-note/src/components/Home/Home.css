@@ -10,16 +10,15 @@
         font-size: calc(14px + 2vmin);
         color:rgb(14, 14, 18);
         font-family: 'Righteous', cursive;
+        align-items: center;
     }
 
     .Img-title{
         width: 70vmin;
-        margin-left: 14vmin;
     }
 
     .Img-home{
         width: 70vmin;
-        margin-left: 14vmin;
         margin-top: 70px;
     }
 
@@ -31,7 +30,6 @@
           color: white;
           font-size: 25px;
           border: none;
-          margin-left: 25vmin;
           margin-top: 40px;
       }
 

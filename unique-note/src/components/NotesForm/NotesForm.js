@@ -72,15 +72,17 @@ function NotesForm() {
   //Funcion para renderizar lista de notas
   const getList = async () => {
     try {
-      /* console.log("holaaaaaaaaaa"); */
+      console.log("holaaaaaaaaaa"); 
       const querySnapshot = await getDocs(collection(db, 'notesGenerate'));
+      console.log(querySnapshot, 'db')
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
+      console.log('buscar2', docs)
       setList(docs);
     } catch (error) {
-      /* console.log(error) */
+      console.log('busca', error) 
     }
   };
   useEffect(() => {
