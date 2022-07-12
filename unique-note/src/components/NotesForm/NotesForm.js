@@ -4,8 +4,6 @@ import {
   addDoc,
   collection,
   getDocs,
-  getDoc,
-  setDoc,
   doc,
   deleteDoc,
   updateDoc
@@ -68,7 +66,6 @@ function NotesForm() {
     setDataInputs({ ...dataInputs, [name]: value });
     /* console.log(name, value) */
   };
-
   //Funcion para renderizar lista de notas
   const getList = async () => {
     try {
@@ -97,6 +94,7 @@ await deleteDoc(doc(db,'notesGenerate', id))
 })
   }
 
+// Comparación 
 const getPostNote = async(id) => {
   list.forEach(note =>{
     if(note.id===id){
@@ -106,11 +104,6 @@ const getPostNote = async(id) => {
   })
 }
 
-useEffect(() => {
-if(postNote !== '') {
-  getPostNote(postNote)
-}
-},[]) 
 
   return (
     <div className="Container-Gen">

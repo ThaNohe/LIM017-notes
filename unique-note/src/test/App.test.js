@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom"; 
-
 import '@testing-library/jest-dom'
 import Register from "../components/Register/Register";
 import Login from "../components/Login/Login";
