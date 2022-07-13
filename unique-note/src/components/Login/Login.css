@@ -67,7 +67,7 @@
 
   .button-components {
     width: 200px;
-    height: 50px;
+    height: 40px;
     border-radius: 60px;
     background-color: #e8416b;
     color: white;
@@ -83,7 +83,7 @@
 
   .button-google {
     width: 260px;
-    height: 50px;
+    height: 40px;
     border-radius: 60px;
     background-color: white;
     color: #e8416b;
@@ -91,6 +91,15 @@
     border: none;
     margin-top: 10px;
     text-align: center;
+  }
+
+  .Error{
+    margin-top: -5px;
+  } 
+
+  p{
+    color: red;
+    font-size: 40px;
   }
 
   .Img-google {

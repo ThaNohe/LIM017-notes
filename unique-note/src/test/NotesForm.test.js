@@ -9,9 +9,9 @@ import NotesForm from "../components/NotesForm/NotesForm";
 import { getDocs } from "firebase/firestore";
 
 
-jest.mock('firebase/firestore' , () => { getDocs }) */
+jest.mock('firebase/firestore', () => { getDocs })
 describe.only('Pruebas para NotesForm Componentes', ()=>{
-it.only('Validacion de cargado de notas', () =>{
+it('Validacion de cargado de notas', () =>{
     const history = createMemoryHistory();
     render(
     <Router location={history.location} navigator={history}>

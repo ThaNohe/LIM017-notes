@@ -4,6 +4,8 @@ import {
   addDoc,
   collection,
   getDocs,
+  query,
+  where,
   doc,
   deleteDoc,
   updateDoc
@@ -11,6 +13,7 @@ import {
 import { db } from "../../firebase/firebaseConfig";
 import { authContext } from "../../context/authContext";
 import "./NotesForm.css";
+
 
 function NotesForm() {
   const [email, setEmail] = useState();
@@ -24,19 +27,8 @@ function NotesForm() {
   //Variables de estado
   const [dataInputs, setDataInputs] = useState(inicializeDataInputs);
   const [list, setList] = useState([]);
-  const [postNote, setPostNote] = useState('');
   const [updatingNote, setUpdatingNote] = useState(false)
 
-  //Funciones para logout
-  const navigation = useNavigate();
-  const handleLogout = (e) => {
-    context
-      .logout(email)
-      .then(() => navigation("/home"))
-      .catch((error) => {
-        console.log(error.code);
-      });
-  };
 
   //Funcion para guardar y actualizar datos 
   const saveNotes = async (e) => {
@@ -50,12 +42,15 @@ function NotesForm() {
     })
   }
   
+  //Función que actualiza data luego de editarla , cambio de boton guardar y editar
   const updateNote =  async(e) =>{
     e.preventDefault()
     updateDoc(doc(db,'notesGenerate', dataInputs.id),{
     ...dataInputs})
     .then((response) =>{
-      setDataInputs({ ...inicializeDataInputs })})
+      setDataInputs({ ...inicializeDataInputs })
+      setUpdatingNote(false)
+    })
     getList() 
   }
 
@@ -69,9 +64,10 @@ function NotesForm() {
   //Funcion para renderizar lista de notas
   const getList = async () => {
     try {
-      console.log("holaaaaaaaaaa"); 
-      const querySnapshot = await getDocs(collection(db, 'notesGenerate'));
-      console.log(querySnapshot, 'db')
+      /* console.log("holaaaaaaaaaa");  */
+      const q = query(collection(db, 'notesGenerate'), where('author', '==', localStorage.getItem('email')))
+      const querySnapshot = await getDocs(q);
+      /* console.log(querySnapshot, 'db') */
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
@@ -108,20 +104,10 @@ const getPostNote = async(id) => {
   return (
     <div className="Container-Gen">
       <div className="Container-WelcomeUser">
-        <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión</h1>
+        <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión 😊</h1>
       </div>
       <div className="Container-InputNotes">
-        <div className="btn-position">
-          <button onClick={handleLogout} className="button-components-logout">
-            {
-              <img
-                className="Img-logout"
-                src={require("../../img/logOut.png")}
-                alt="Img salir"
-              />
-            }
-          </button>
-        </div>
+       
       
           <div>
           <div className="titleList">
@@ -159,12 +145,16 @@ const getPostNote = async(id) => {
         <div className="titleList">
         <h2>Lista de Notas</h2>
         </div>
-        <div>
+        <div >
           {list.map((listes) => (
-            <div key={listes.id}>
+            <div className="Container-textareaNoteGenerate" key={listes.id}>
               {/* <p>Author:{listes.author}</p> */}
+              <div className="Text-Title">
               <p>Titulo:{listes.notestitle}</p>
+              </div>
+              <div className="Text-Descript">
               <p>Descripcion:{listes.description}</p>
+              </div>
 
               <button className="btn-borrar" onClick ={() =>deleteUser(listes.id)}>Borrar</button>
               <button className="btn-editar" onClick ={() =>getPostNote(listes.id)}>Editar</button>

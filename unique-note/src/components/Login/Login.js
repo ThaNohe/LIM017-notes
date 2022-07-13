@@ -79,6 +79,7 @@ import { useAuth } from '../../context/authContext'; */
       required
        onChange={(e)=> setPassword(e.target.value)} 
       />
+      <div className='Error'></div>
       <p>{error}</p>
 
       <div className='content-btn'>

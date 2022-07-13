@@ -1,0 +1,67 @@
+@media only screen and (min-width: 650px) {
+  /* .header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+  .Container-NavBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    background-color: rgb(181, 196, 221);
+  }
+
+  .header-title-Name {
+    width: 100px;
+    height: 10px;
+    margin-left: 100px;
+    margin-top: 5px;
+  }
+
+  .Img-title-h {
+    width: 240px;
+    display: flex;
+    margin-top: -10px;
+  }
+
+  /* .Welcome-h {
+    width: 700px;
+    height: 10px;
+    position: absolute;
+    font-size: 10px;
+    margin-top: -8px;
+    text-align: center;
+  } */
+
+  /* .Container-Btn-Logout{
+    display: flex;
+    text-align: right;
+    margin-top: 20%;
+    margin-left: 20%;
+}
+ */
+
+  .Img-logout {
+    margin-left: -90px;
+    margin-top: -10px;
+    justify-content: center;
+    display: flex;
+    height: 40px;
+    width: 40px
+  }
+
+  .button-components-logout {
+    /* margin-top: -20vmin;
+margin-left: 70vmin;
+display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    height: 10px;
+    width: 5px;
+    font-family: "Righteous", cursive;
+    background-color: rgb(181, 196, 221);
+    border: none;
+  }
+}

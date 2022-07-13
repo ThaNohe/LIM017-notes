@@ -26,7 +26,7 @@ function Home() {
         alt="Img newpostit"
       />
       <div className="title-welcome1">
-        <h1>Un bloc de notas a tu alcance ¡Toma nota ahora!</h1>
+        <h1>Un bloc de notas a tu alcance <br></br>¡Toma nota ahora!</h1>
       </div>
       <div className="content-btn">
         <button

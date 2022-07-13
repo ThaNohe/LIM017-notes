@@ -9,6 +9,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import NotesForm from './components/NotesForm/NotesForm';
 import { AuthProvider } from './context/authContext'
+import Header from './components/Header/Header'
 
 function App () {
   return (
@@ -19,7 +20,7 @@ function App () {
         <Route path="home" element={<Home />} />
         <Route path="register" element={<Register />} />      
         <Route path="login" element={<Login />} />
-        <Route path="notesform" element={<NotesForm />} />
+        <Route path="notesform" element={<><Header/><NotesForm /></>} />
     </Routes>
   </BrowserRouter>
   </AuthProvider> 

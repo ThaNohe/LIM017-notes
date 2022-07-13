@@ -1,25 +1,29 @@
 .Container-Gen{
     background-image: url('../../img/fondo.png'); 
-    height: 100vh; 
+    height: 150vh; 
     display: flex;
     justify-content: center;
+    border-radius: 15px;
+
 }
 
 .Container-WelcomeUser{
 width:700px;
-height: 10px;
+height: 40px;
 position:absolute;
 font-size: 8.5px;
 margin-top: 35px;
 text-align: center;
+background-color: #b2ec94;
+border-radius: 50px;
 }
 
 .Container-InputNotes{
     /* position:relative; */
-    width: 190px;
-    height: 400px;
+    width: 260px;
+    height: 395px;
     padding: 35px; 
-    background:#f5bacc ;
+    background:#b5ef95;
     /* background: transparent;
     border: 3px solid #fff; */ 
     margin-top: 120px;
@@ -27,68 +31,73 @@ text-align: center;
 } 
 
 input.titleNote{
-    width: 190px;
+    width: 260px;
     height: 60px;
     border-radius: 15px;
-    /* box-shadow: inset 0px 0px 25px 0px rgb(174, 169, 169); */
-    border: none;
-    outline: none;
     font-size: 20px;
-    background-color: #FFF89A;
-    margin-top: 12px;
+    background-color: #fffab6;
+    margin-top: 5px;
     text-align: center;
-    font-family: 'Righteous', cursive;;
+    font-family: 'Righteous', cursive;
+    color: darkblue;
 }
 
 .textareaNote {
     
-    width:190px;
-    height: 230px;
+    width:260px;
+    height: 170px;
     border-radius: 15px;
-    background-color: #FFF89A;
+    background-color: #fefab6;
     margin-top: 10px;
     margin-left: 0vmin;
     font-size: 20px;
     text-align: center;
-    font-family: 'Righteous', cursive;;
+    font-family: 'Righteous', cursive;
+}
+
+.Container-textareaNoteGenerate{
+    width:260px;
+    height: 130px;
+    border-radius: 15px;
+    background-color: #fefab6;
+    margin-top: -20px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+}
+
+.titleList{
+    text-align: center;
+    margin-top: -400px; 
+    font-family: 'Righteous', cursive;
+    font-size: 15px;
 }
 
 .Container-PrintNotes{
-    background-color:#f5bacc;
-    width: 210px;
+    background-color: #b5ef95;
+    width: 260px;
     padding: 35px;
-    height: 700px;
+    height: 1300px;
     margin-left: 20px;
     margin-top: 120px;
     border-radius: 30px;
 }
 
-.titleList{
-    text-align: center;
-    margin-top: -390px; 
-    font-family: 'Righteous', cursive;
-    font-size: 15px;
+.Text-Title {
+    margin-left: 15px;
+    margin-top: 40px;
+    color: rgb(10, 26, 152);
+    font-family:'Righteous', negrita;
+    font-size: 17px;
 }
 
-.Img-logout{
-    width: 15vmin;
-    margin-left: 15vmin;
-    margin-top: 120px;
-    height: 30px;
-    width: 30px;
+.Text-Descript {
+    margin-left: 15px;
+    margin-top: 40px;
+    font-family: 'Righteous', 'Times New Roman', Times, serif;
 }
-
-.button-components-logout{
-margin-top: -20vmin;
-margin-left: 70vmin;
-display: flex;
-justify-content: space-between;
-align-items:center;
-height: 20px;
-width: 10px;
-font-family: 'Righteous', cursive;
-}
-
 .btn-saveNotes{
     text-align: center;
 }
@@ -96,7 +105,7 @@ font-family: 'Righteous', cursive;
     width: 200px;
     height: 50px;
     border-radius: 60px;
-    background-color: #e8416b;;
+    background-color: #1db74b;;
     color: white;
     font-size: 20px;
     border: none;
