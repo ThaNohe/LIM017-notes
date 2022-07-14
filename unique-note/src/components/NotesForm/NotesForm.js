@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect} from "react";
+
 import {
   addDoc,
   collection,
@@ -11,14 +11,12 @@ import {
   updateDoc
 } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import { authContext } from "../../context/authContext";
+
 import "./NotesForm.css";
 
 
 function NotesForm() {
-  const [email, setEmail] = useState();
-  const context = useContext(authContext);
-
+  
   const inicializeDataInputs = {
     notestitle: "",
     description: "",
@@ -29,6 +27,12 @@ function NotesForm() {
   const [list, setList] = useState([]);
   const [updatingNote, setUpdatingNote] = useState(false)
 
+   //Funcion para capturar data de inputs
+   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setDataInputs({ ...dataInputs, [name]: value });
+    /* console.log(name, value) */
+  };
 
   //Funcion para guardar y actualizar datos 
   const saveNotes = async (e) => {
@@ -42,25 +46,6 @@ function NotesForm() {
     })
   }
   
-  //Función que actualiza data luego de editarla , cambio de boton guardar y editar
-  const updateNote =  async(e) =>{
-    e.preventDefault()
-    updateDoc(doc(db,'notesGenerate', dataInputs.id),{
-    ...dataInputs})
-    .then((response) =>{
-      setDataInputs({ ...inicializeDataInputs })
-      setUpdatingNote(false)
-    })
-    getList() 
-  }
-
-
-  //Funcion para capturar data de inputs
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setDataInputs({ ...dataInputs, [name]: value });
-    /* console.log(name, value) */
-  };
   //Funcion para renderizar lista de notas
   const getList = async () => {
     try {
@@ -82,15 +67,7 @@ function NotesForm() {
     getList();
   }, []);
 
-  //Funcion para eliminar usuario
-const deleteUser = async(id) =>{
-await deleteDoc(doc(db,'notesGenerate', id))
-.then(() =>{
-  getList()
-})
-  }
-
-// Comparación 
+  // Comparación para edición 
 const getPostNote = async(id) => {
   list.forEach(note =>{
     if(note.id===id){
@@ -99,7 +76,25 @@ const getPostNote = async(id) => {
     }
   })
 }
+  //Función que actualiza data luego de editarla , cambio de boton guardar y editar
+  const updateNote =  async(e) =>{
+    e.preventDefault()
+    updateDoc(doc(db,'notesGenerate', dataInputs.id),{
+    ...dataInputs})
+    .then((response) =>{
+      setDataInputs({ ...inicializeDataInputs })
+      setUpdatingNote(false)
+    })
+    getList() 
+  }
 
+  //Funcion para eliminar nota generada por usuario
+const deleteUser = async(id) =>{
+await deleteDoc(doc(db,'notesGenerate', id))
+.then(() =>{
+  getList()
+})
+  }
 
   return (
     <div className="Container-Gen">

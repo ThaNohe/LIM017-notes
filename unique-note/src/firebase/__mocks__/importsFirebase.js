@@ -1,0 +1,12 @@
+export const initializeApp = () => ({})
+export const getAuth = () => ({})
+export const getFirestore = () => ({})
+
+const addDoc = jest.function(() => ({}))
+const collection = jest.function(() => ({}))
+const getDocs = jest.function(() => ({}))
+const query = jest.function(() => ({}))
+const where = jest.function(() => ({}))
+const doc = jest.function(() => ({}))
+const deleteDoc = jest.function(() => ({}))
+const updateDoc = jest.function(() => ({}))

@@ -9,7 +9,7 @@ import NotesForm from "../components/NotesForm/NotesForm";
 import { getDocs } from "firebase/firestore";
 
 
-jest.mock('firebase/firestore', () => { getDocs })
+jest.mock('firebase/firestore')
 describe.only('Pruebas para NotesForm Componentes', ()=>{
 it('Validacion de cargado de notas', () =>{
     const history = createMemoryHistory();
