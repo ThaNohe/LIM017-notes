@@ -1,22 +1,16 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   addDoc,
-  collection,
-  getDocs,
-  query,
-  where,
   doc,
   deleteDoc,
-  updateDoc
+  updateDoc,
 } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
+import { db, getDocs, query, where,collection } from "../../firebase/firebaseConfig";
 
 import "./NotesForm.css";
 
-
 function NotesForm() {
-  
   const inicializeDataInputs = {
     notestitle: "",
     description: "",
@@ -25,76 +19,78 @@ function NotesForm() {
   //Variables de estado
   const [dataInputs, setDataInputs] = useState(inicializeDataInputs);
   const [list, setList] = useState([]);
-  const [updatingNote, setUpdatingNote] = useState(false)
+  const [updatingNote, setUpdatingNote] = useState(false);
 
-   //Funcion para capturar data de inputs
-   const handleInputChange = (e) => {
+  //Funcion para capturar data de inputs
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setDataInputs({ ...dataInputs, [name]: value });
     /* console.log(name, value) */
   };
 
-  //Funcion para guardar y actualizar datos 
+  //Funcion para guardar y actualizar datos
   const saveNotes = async (e) => {
-    e.preventDefault()
-    await addDoc(collection(db, "notesGenerate"), 
-    {...dataInputs,
-    }).then((response) => {
-    console.log(response)
-    setDataInputs({ ...inicializeDataInputs });
-    getList()
-    })
-  }
-  
+    e.preventDefault();
+    await addDoc(collection(db, "notesGenerate"), { ...dataInputs }).then(
+      (response) => {
+        console.log(response);
+        setDataInputs({ ...inicializeDataInputs });
+        getList();
+      }
+    );
+  };
+
   //Funcion para renderizar lista de notas
   const getList = async () => {
     try {
       /* console.log("holaaaaaaaaaa");  */
-      const q = query(collection(db, 'notesGenerate'), where('author', '==', localStorage.getItem('email')))
+      const q = query(
+        collection(db, "notesGenerate"),
+        where("author", "==", localStorage.getItem("email"))
+      );
       const querySnapshot = await getDocs(q);
       /* console.log(querySnapshot, 'db') */
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
-      console.log('buscar2', docs)
+      console.log("buscar2", docs);
       setList(docs);
     } catch (error) {
-      console.log('busca', error) 
+      console.log("busca", error);
     }
   };
   useEffect(() => {
     getList();
   }, []);
 
-  // Comparación para edición 
-const getPostNote = async(id) => {
-  list.forEach(note =>{
-    if(note.id===id){
-      setDataInputs(note)
-      setUpdatingNote(true)
-    }
-  })
-}
+  // Comparación para edición
+  const getPostNote = async (id) => {
+    list.forEach((note) => {
+      if (note.id === id) {
+        setDataInputs(note);
+        setUpdatingNote(true);
+      }
+    });
+  };
   //Función que actualiza data luego de editarla , cambio de boton guardar y editar
-  const updateNote =  async(e) =>{
-    e.preventDefault()
-    updateDoc(doc(db,'notesGenerate', dataInputs.id),{
-    ...dataInputs})
-    .then((response) =>{
-      setDataInputs({ ...inicializeDataInputs })
-      setUpdatingNote(false)
-    })
-    getList() 
-  }
+  const updateNote = async (e) => {
+    e.preventDefault();
+    updateDoc(doc(db, "notesGenerate", dataInputs.id), {
+      ...dataInputs,
+    }).then((response) => {
+      setDataInputs({ ...inicializeDataInputs });
+      setUpdatingNote(false);
+    });
+    getList();
+  };
 
   //Funcion para eliminar nota generada por usuario
-const deleteUser = async(id) =>{
-await deleteDoc(doc(db,'notesGenerate', id))
-.then(() =>{
-  getList()
-})
-  }
+  const deleteUser = async (id) => {
+    await deleteDoc(doc(db, "notesGenerate", id)).then(() => {
+      getList();
+    });
+  };
 
   return (
     <div className="Container-Gen">
@@ -102,57 +98,75 @@ await deleteDoc(doc(db,'notesGenerate', id))
         <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión 😊</h1>
       </div>
       <div className="Container-InputNotes">
-       
-      
-          <div>
+        <div>
           <div className="titleList">
             <h2>Escribe una nota</h2>
           </div>
-            <input
-              className="titleNote"
-              type="text"
-              name="notestitle"
-              placeholder="Titulo de la  nota"
-              onChange={handleInputChange}
-              value={dataInputs.notestitle}
-              /* onChange={ e => setNotes(e.target.value)} */
-            />
-            <textarea
-              className="textareaNote"
-              name="description"
-              placeholder="Escribe una nota..."
-              onChange={handleInputChange}
-              value={dataInputs.description}
-            ></textarea>
-          </div>
-          <div className="btn-saveNotes">
-            {
-              updatingNote 
-              ? <button onClick={(e) =>updateNote(e)} className="button-components-saveNotes"> Editar </button>
-              :  <button onClick={(e) =>saveNotes(e)} className="button-components-saveNotes"> Guardar </button>
-            }
-         
-            </div>
-        
+          <input
+            className="titleNote"
+            type="text"
+            name="notestitle"
+            placeholder="Titulo de la  nota"
+            onChange={handleInputChange}
+            value={dataInputs.notestitle}
+            /* onChange={ e => setNotes(e.target.value)} */
+          />
+          <textarea
+            className="textareaNote"
+            name="description"
+            placeholder="Escribe una nota..."
+            onChange={handleInputChange}
+            value={dataInputs.description}
+          ></textarea>
+        </div>
+        <div className="btn-saveNotes">
+          {updatingNote ? (
+            <button
+              onClick={(e) => updateNote(e)}
+              className="button-components-saveNotes"
+            >
+              {" "}
+              Editar{" "}
+            </button>
+          ) : (
+            <button
+              onClick={(e) => saveNotes(e)}
+              className="button-components-saveNotes"
+            >
+              {" "}
+              Guardar{" "}
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="Container-PrintNotes">
         <div className="titleList">
-        <h2>Lista de Notas</h2>
+          <h2>Lista de Notas</h2>
         </div>
-        <div >
+        <div>
           {list.map((listes) => (
             <div className="Container-textareaNoteGenerate" key={listes.id}>
               {/* <p>Author:{listes.author}</p> */}
               <div className="Text-Title">
-              <p>Titulo:{listes.notestitle}</p>
+                <p>Titulo:{listes.notestitle}</p>
               </div>
               <div className="Text-Descript">
-              <p>Descripcion:{listes.description}</p>
+                <p>Descripcion:{listes.description}</p>
               </div>
 
-              <button className="btn-borrar" onClick ={() =>deleteUser(listes.id)}>Borrar</button>
-              <button className="btn-editar" onClick ={() =>getPostNote(listes.id)}>Editar</button>
+              <button
+                className="btn-borrar"
+                onClick={() => deleteUser(listes.id)}
+              >
+                Borrar
+              </button>
+              <button
+                className="btn-editar"
+                onClick={() => getPostNote(listes.id)}
+              >
+                Editar
+              </button>
             </div>
           ))}
         </div>
