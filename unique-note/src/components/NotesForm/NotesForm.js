@@ -150,7 +150,7 @@ function NotesForm() {
           </div>
         </div>
 
-        {/* <div className="Container-PrintNotes">
+        <div className="Container-PrintNotes">
           <div className="titleList">
             <h2>Lista de Notas</h2>
           </div>
@@ -179,7 +179,7 @@ function NotesForm() {
               </div>
             ))}
           </div>
-        </div> */}
+        </div> 
       </div>
     </div>
   );
