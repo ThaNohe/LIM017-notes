@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 
+import { addDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import {
-  addDoc,
-  doc,
-  deleteDoc,
-  updateDoc,
-} from "firebase/firestore";
-import { db, getDocs, query, where,collection } from "../../firebase/firebaseConfig";
+  db,
+  getDocs,
+  query,
+  where,
+  collection,
+} from "../../firebase/firebaseConfig";
 
-import "./NotesForm.css";
+import './NotesForm.css';
+import { AddNoteComponent } from "./AddNoteComponent";
 
 function NotesForm() {
   const inicializeDataInputs = {
@@ -93,83 +95,91 @@ function NotesForm() {
   };
 
   return (
-    <div className="Container-Gen">
-      <div className="Container-WelcomeUser">
-        <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión 😊</h1>
+    <div>
+      <div>
+        <AddNoteComponent x={deleteUser}/>
       </div>
-      <div className="Container-InputNotes">
-        <div>
-          <div className="titleList">
-            <h2>Escribe una nota</h2>
-          </div>
-          <input
-            className="titleNote"
-            type="text"
-            name="notestitle"
-            placeholder="Titulo de la  nota"
-            onChange={handleInputChange}
-            value={dataInputs.notestitle}
-            /* onChange={ e => setNotes(e.target.value)} */
-          />
-          <textarea
-            className="textareaNote"
-            name="description"
-            placeholder="Escribe una nota..."
-            onChange={handleInputChange}
-            value={dataInputs.description}
-          ></textarea>
+    
+      <div className="Container-Gen">
+        <div className="Container-WelcomeUser">
+          <h1>
+            {" "}
+            Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión 😊
+          </h1>
         </div>
-        <div className="btn-saveNotes">
-          {updatingNote ? (
-            <button
-              onClick={(e) => updateNote(e)}
-              className="button-components-saveNotes"
-            >
-              {" "}
-              Editar{" "}
-            </button>
-          ) : (
-            <button
-              onClick={(e) => saveNotes(e)}
-              className="button-components-saveNotes"
-            >
-              {" "}
-              Guardar{" "}
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div className="Container-PrintNotes">
-        <div className="titleList">
-          <h2>Lista de Notas</h2>
-        </div>
-        <div>
-          {list.map((listes) => (
-            <div className="Container-textareaNoteGenerate" key={listes.id}>
-              {/* <p>Author:{listes.author}</p> */}
-              <div className="Text-Title">
-                <p>Titulo:{listes.notestitle}</p>
-              </div>
-              <div className="Text-Descript">
-                <p>Descripcion:{listes.description}</p>
-              </div>
-
-              <button
-                className="btn-borrar"
-                onClick={() => deleteUser(listes.id)}
-              >
-                Borrar
-              </button>
-              <button
-                className="btn-editar"
-                onClick={() => getPostNote(listes.id)}
-              >
-                Editar
-              </button>
+        <div className="Container-InputNotes">
+          <div>
+            <div className="titleList">
+              <h2>Escribe una nota</h2>
             </div>
-          ))}
+            <input
+              className="titleNote"
+              type="text"
+              name="notestitle"
+              placeholder="Titulo de la  nota"
+              onChange={handleInputChange}
+              value={dataInputs.notestitle}
+              /* onChange={ e => setNotes(e.target.value)} */
+            />
+            <textarea
+              className="textareaNote"
+              name="description"
+              placeholder="Escribe una nota..."
+              onChange={handleInputChange}
+              value={dataInputs.description}
+            ></textarea>
+          </div>
+          <div className="btn-saveNotes">
+            {updatingNote ? (
+              <button
+                onClick={(e) => updateNote(e)}
+                className="button-components-saveNotes"
+              >
+                {" "}
+                Editar{" "}
+              </button>
+            ) : (
+              <button
+                onClick={(e) => saveNotes(e)}
+                className="button-components-saveNotes"
+              >
+                {" "}
+                Guardar{" "}
+              </button>
+            )}
+          </div>
         </div>
+
+        {/* <div className="Container-PrintNotes">
+          <div className="titleList">
+            <h2>Lista de Notas</h2>
+          </div>
+          <div>
+            {list.map((listes) => (
+              <div className="Container-textareaNoteGenerate" key={listes.id}>
+                <div className="Text-Title">
+                  <p>Titulo:{listes.notestitle}</p>
+                </div>
+                <div className="Text-Descript">
+                  <p>Descripcion:{listes.description}</p>
+                </div>
+
+                <button
+                  className="btn-borrar"
+                  onClick={() => deleteUser(listes.id)}
+                >
+                  Borrar
+                </button>
+                <button
+                  className="btn-editar"
+                  onClick={() => getPostNote(listes.id)}
+                >
+                  Editar
+                </button>
+              </div>
+            ))}
+          </div>
+        </div> */}
       </div>
     </div>
   );
