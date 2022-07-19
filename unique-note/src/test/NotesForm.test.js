@@ -4,7 +4,7 @@ import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import "@testing-library/jest-dom";
 import NotesForm from "../components/NotesForm/NotesForm";
-import { getDocs } from "firebase/firestore";
+
 
 jest.mock('../firebase/firebaseConfig');
 describe("Pruebas para NotesForm Componentes", () => {

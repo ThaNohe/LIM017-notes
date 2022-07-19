@@ -1,0 +1,10 @@
+.Container-WelcomeUser{
+    width:700px;
+    height: 40px;
+    position:absolute;
+    font-size: 8.5px;
+    margin-top: 35px;
+    text-align: center;
+    background-color: #b2ec94;
+    border-radius: 50px;
+    }

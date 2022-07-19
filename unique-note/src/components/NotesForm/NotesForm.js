@@ -10,7 +10,7 @@ import {
 } from "../../firebase/firebaseConfig";
 
 import './NotesForm.css';
-import { AddNoteComponent } from "./AddNoteComponent";
+import { AddTitleComponent } from "./AddTitleComponent";
 
 function NotesForm() {
   const inicializeDataInputs = {
@@ -97,16 +97,16 @@ function NotesForm() {
   return (
     <div>
       <div>
-        <AddNoteComponent x={deleteUser}/>
+        <AddTitleComponent/>
       </div>
     
       <div className="Container-Gen">
-        <div className="Container-WelcomeUser">
+       {/*  <div className="Container-WelcomeUser">
           <h1>
             {" "}
             Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión 😊
           </h1>
-        </div>
+        </div> */}
         <div className="Container-InputNotes">
           <div>
             <div className="titleList">
