@@ -1,10 +1,28 @@
 .Container-WelcomeUser{
-    width:700px;
+    width: 700px;
     height: 40px;
-    position:absolute;
     font-size: 8.5px;
-    margin-top: 35px;
-    text-align: center;
     background-color: #b2ec94;
     border-radius: 50px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /*  margin: 10px 150px 0 150px; */
+    margin: 20px 500px 0 250px;
+}
+
+ /*Responsive for desktop*/
+
+    @media screen and (min-width: 768px) {
+        .Container-WelcomeUser{
+            margin: 20px 605px 0 605px;
+            width: 820px;
+            height: 50px;
+        }
+    
+        h1 {
+            font-size: 25px;
+            text-align: center;
+        }
+ }    
+    

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./NotesForm.css";
+import "./AddTitleComponent.css";
 
 export function AddTitleComponent(){
     

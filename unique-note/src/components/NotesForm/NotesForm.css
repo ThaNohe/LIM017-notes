@@ -1,32 +1,24 @@
+
 .Container-Gen{
-    background-image: url('../../img/fondo.png'); 
-    height: 150vh; 
     display: flex;
     justify-content: center;
     border-radius: 15px;
-
-}
-
-.Container-WelcomeUser{
-width:700px;
-height: 40px;
-position:absolute;
-font-size: 8.5px;
-margin-top: 35px;
-text-align: center;
-background-color: #b2ec94;
-border-radius: 50px;
+    background-image: url('../../img/fondo.png'); 
+   background-attachment: fixed;
+   height: 100vh;
+   position: relative;
+   top: 0;
+   z-index: 1500;
+ 
 }
 
 .Container-InputNotes{
-    /* position:relative; */
+    display: grid;
     width: 260px;
     height: 395px;
     padding: 35px; 
     background:#b5ef95;
-    /* background: transparent;
-    border: 3px solid #fff; */ 
-    margin-top: 120px;
+    margin-top: 100px;
     border-radius: 30px; 
 } 
 
@@ -36,7 +28,6 @@ input.titleNote{
     border-radius: 15px;
     font-size: 20px;
     background-color: #fffab6;
-    margin-top: 5px;
     text-align: center;
     font-family: 'Righteous', cursive;
     color: darkblue;
@@ -49,7 +40,6 @@ input.titleNote{
     border-radius: 15px;
     background-color: #fefab6;
     margin-top: 10px;
-    margin-left: 0vmin;
     font-size: 20px;
     text-align: center;
     font-family: 'Righteous', cursive;
@@ -60,28 +50,22 @@ input.titleNote{
     height: 130px;
     border-radius: 15px;
     background-color: #fefab6;
-    margin-top: -20px;
-    margin-left: 0px;
-    margin-bottom: 15px;
-    font-size: 20px;
+    margin-top: 17px;
     text-align: center;
     font-family: 'Righteous', cursive;
 }
 
 .titleList{
     text-align: center;
-    margin-top: -400px; 
     font-family: 'Righteous', cursive;
-    font-size: 15px;
 }
 
 .Container-PrintNotes{
     background-color: #b5ef95;
     width: 260px;
     padding: 35px;
-    height: 1300px;
     margin-left: 20px;
-    margin-top: 120px;
+    margin-top: 100px;
     border-radius: 30px;
 }
 
@@ -122,7 +106,6 @@ input.titleNote{
 p{
     text-align: left;
     margin-left: 0px;
-    margin-top: 35px;
     font-family: 'Righteous', cursive;
     font-size: 12px; 
     line-height: 1;
@@ -148,4 +131,136 @@ p{
     border: none;
     font-family: 'Righteous', cursive;
     margin-left: 5px;
+}
+
+/*Responsive for desktop*/
+@media screen and (min-width: 768px){
+  
+    .Container-InputNotes{
+        display: grid;
+        width: 260px;
+        height: 395px;
+        padding: 35px; 
+        background:#b5ef95;
+        margin-top: 100px;
+        border-radius: 30px; 
+    } 
+    
+    input.titleNote{
+        width: 260px;
+        height: 60px;
+        border-radius: 15px;
+        font-size: 20px;
+        background-color: #fffab6;
+        text-align: center;
+        font-family: 'Righteous', cursive;
+        color: darkblue;
+    }
+    
+    .textareaNote {
+        
+        width:260px;
+        height: 170px;
+        border-radius: 15px;
+        background-color: #fefab6;
+        margin-top: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Righteous', cursive;
+    }
+    
+    .Container-textareaNoteGenerate{
+        width:260px;
+        height: 130px;
+        border-radius: 15px;
+        background-color: #fefab6;
+        margin-top: 17px;
+        text-align: center;
+        font-family: 'Righteous', cursive;
+    }
+    
+    .titleList{
+        text-align: center;
+        font-family: 'Righteous', cursive;
+    }
+    
+    .Container-PrintNotes{
+        background-color: #b5ef95;
+        width: 828px;
+        height: 750px;
+        padding: 35px;
+        margin-left: 20px;
+        margin-top: 100px;
+        border-radius: 30px;
+    }
+    
+    .Text-Title {
+        margin-left: 15px;
+        margin-top: 40px;
+        color: rgb(10, 26, 152);
+        font-family:'Righteous', negrita;
+        font-size: 17px;
+    }
+    
+    .Text-Descript {
+        margin-left: 15px;
+        margin-top: 40px;
+        font-family: 'Righteous', 'Times New Roman', Times, serif;
+    }
+    .btn-saveNotes{
+        text-align: center;
+    }
+    .button-components-saveNotes{
+        width: 200px;
+        height: 50px;
+        border-radius: 60px;
+        background-color: #1db74b;;
+        color: white;
+        font-size: 20px;
+        border: none;
+        margin-top: 10px;
+        text-align: center;
+        justify-content:center;
+        font-family: 'Righteous', cursive;
+    }
+    .btn-position{
+        display: flex;
+        justify-content:center;
+    }
+    
+    p{
+        text-align: left;
+        margin-left: 0px;
+        font-family: 'Righteous', cursive;
+        font-size: 12px; 
+        line-height: 1;
+    }
+    .btn-borrar{
+        width:55px;
+        height: 25px;
+        border-radius: 20px;
+        background-color:rgb(239, 15, 60);
+        color: white;
+        font-size: 14px;
+        border: none;
+        font-family: 'Righteous', cursive;
+    }
+    
+    .btn-editar{
+        width:55px;
+        height: 25px;
+        border-radius: 20px;
+        background-color:rgb(22, 137, 64);
+        color: white;
+        font-size: 14px;
+        border: none;
+        font-family: 'Righteous', cursive;
+        margin-left: 5px;
+    }
+    .Container-Notes {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-areas: 1fr 1fr;
+        grid-gap: 20px;
+    }
 }

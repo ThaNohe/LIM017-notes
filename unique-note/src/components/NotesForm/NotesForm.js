@@ -154,7 +154,7 @@ function NotesForm() {
           <div className="titleList">
             <h2>Lista de Notas</h2>
           </div>
-          <div>
+          <div className="Container-Notes">
             {list.map((listes) => (
               <div className="Container-textareaNoteGenerate" key={listes.id}>
                 <div className="Text-Title">
