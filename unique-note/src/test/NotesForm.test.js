@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import "@testing-library/jest-dom";
@@ -14,6 +14,6 @@ describe("Pruebas para NotesForm Componentes", () => {
         <NotesForm />
       </Router>
     );
-    await waitFor(() => expect(screen.getByText(/Titulo:test/i)).toBeInTheDocument());
+    expect(await screen.findByText('Titulo:test')).toBeVisible()
   });
 });
