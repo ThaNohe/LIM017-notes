@@ -26,7 +26,7 @@ function Header () {
         alt="Img title"
       />
       {/* <div className='Welcome-h'>
-       <h1> Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión</h1>
+       <h1> Hola 👋 {localStorage.getItem("email")} Has iniciado sesión</h1>
        </div> */}
         </div>
         <div className='Container-Btn-Logout'>

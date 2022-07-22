@@ -8,7 +8,7 @@ export function AddTitleComponent(){
     return (
         <div className="Container-WelcomeUser">
           <h1>
-            Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión 😊
+            Hola 👋 {localStorage.getItem("email")} Has iniciado sesión 😊
           </h1>
         </div>     
     );
