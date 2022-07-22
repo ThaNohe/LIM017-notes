@@ -1,6 +1,6 @@
 /*Tablet vertical*/
 @media only screen and (min-width: 810px) /* and (max-width: 1180px) */ {
-  .Container-for{
+  .container-for{
     display: flex;
     align-items: center;
     justify-content: center;

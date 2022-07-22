@@ -55,7 +55,7 @@ import { useAuth } from '../../context/authContext'; */
     }
 
   return (
-<div className='Container-for'>
+<div className='container-for'>
     <form className='Form-log' onSubmit={handleSubmit} >
       <img 
       className='Img-register' src={require('../../img/post3.png')}

@@ -17,11 +17,11 @@ function Header () {
   };
 
     return(
-        <div className='Container-NavBar'>
-        <div className='header-title-Name'>
+        <div className='container-navbar'>
+        <div className='header-title-name'>
             {/* <h1>UNIQUE NOTES</h1> */}
         <img
-        className="Img-title-h"
+        className="img-title-h"
         src={require("../../img/text3.gif")}
         alt="Img title"
       />
@@ -34,7 +34,7 @@ function Header () {
           <button onClick={handleLogout} className="button-components-logout">
             {
               <img
-                className="Img-logout"
+                className="img-logout"
                 src={require("../../img/logOut2.png")}
                 alt="Img salir"
               />

@@ -1,63 +1,62 @@
 /*Tablet vertical*/
 
-    .Container-home{
-        background-color:blanchedalmond;
-        min-height: 100vh;
-        min-width: 100vw;
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        font-size: calc(14px + 2vmin);
-        color:rgb(14, 14, 18);
-        font-family: 'Righteous', cursive;
-        align-items: center;
-    }
+.container-home {
+  background-color: blanchedalmond;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(14px + 2vmin);
+  color: rgb(14, 14, 18);
+  font-family: "Righteous", cursive;
+  align-items: center;
+}
 
-    .Img-title{
-        width: 70vmin;
-    }
+.img-title {
+  width: 70vmin;
+}
 
-    .Img-home{
-        width: 70vmin;
-        margin-top: 70px;
-    }
+.img-home {
+  width: 70vmin;
+  margin-top: 70px;
+}
 
-    .button-components-h1{
-        width: 200px;
-          height: 50px;
-          border-radius: 60px;
-          background-color: #e8416b;;
-          color: white;
-          font-size: 25px;
-          border: none;
-          margin-top: 40px;
-      }
+.button-components-h1 {
+  width: 200px;
+  height: 50px;
+  border-radius: 60px;
+  background-color: #e8416b;
+  color: white;
+  font-size: 25px;
+  border: none;
+  margin-top: 40px;
+}
 
-      .button-components-h2{
-        width: 200px;
-          height: 50px;
-          border-radius: 60px;
-          background-color: white;;
-          color: #e8416b;
-          font-size: 25px;
-          border: lightcoral;
-      }
+.button-components-h2 {
+  width: 200px;
+  height: 50px;
+  border-radius: 60px;
+  background-color: white;
+  color: #e8416b;
+  font-size: 25px;
+  border: lightcoral;
+}
 
-      .title-welcome1{
-        text-align: center;
-        margin-top: 20px;
-        font-size: 20px;
+.title-welcome1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
 
-      } 
-
-       /* p1{
+/* p1{
         text-align: center;
         margin-top: 30px;
       }  */
 
 /*Desktop */
-@media only screen and (min-device-width: 810px)  {
-    p{
-        margin-left:50px;
-      }
+@media only screen and (min-device-width: 810px) {
+  p {
+    margin-left: 50px;
+  }
 }

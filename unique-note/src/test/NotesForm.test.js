@@ -15,6 +15,6 @@ describe("Pruebas para NotesForm Componentes", () => {
         <NotesForm />
       </Router>
     );
-    expect(screen.getByText(/Titulo/i)).toBeInTheDocument();
+    expect(screen.getByText(/Titulo:test/i)).toBeInTheDocument();
   });
 });

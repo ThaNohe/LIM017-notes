@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+qqqimport React, { useState, useEffect } from "react";
 
 import { addDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import {
@@ -51,7 +51,7 @@ function NotesForm() {
         where("author", "==", localStorage.getItem("email"))
       );
       const querySnapshot = await getDocs(q);
-      /* console.log(querySnapshot, 'db') */
+      console.log(querySnapshot, 'db') 
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
@@ -59,7 +59,7 @@ function NotesForm() {
       console.log("buscar2", docs);
       setList(docs);
     } catch (error) {
-      console.log("busca", error);
+      console.log("busca1", error);
     }
   };
   useEffect(() => {
@@ -67,7 +67,7 @@ function NotesForm() {
   }, []);
 
   // Comparación para edición
-  const getPostNote = async (id) => {
+  const getPostNote = (id) => {
     list.forEach((note) => {
       if (note.id === id) {
         setDataInputs(note);
@@ -76,7 +76,7 @@ function NotesForm() {
     });
   };
   //Función que actualiza data luego de editarla , cambio de boton guardar y editar
-  const updateNote = async (e) => {
+  const updateNote = (e) => {
     e.preventDefault();
     updateDoc(doc(db, "notesGenerate", dataInputs.id), {
       ...dataInputs,
@@ -88,8 +88,8 @@ function NotesForm() {
   };
 
   //Funcion para eliminar nota generada por usuario
-  const deleteUser = async (id) => {
-    await deleteDoc(doc(db, "notesGenerate", id)).then(() => {
+  const deleteUser = (id) => {
+     deleteDoc(doc(db, "notesGenerate", id)).then(() => {
       getList();
     });
   };
@@ -104,7 +104,7 @@ function NotesForm() {
        {/*  <div className="Container-WelcomeUser">
           <h1>
             {" "}
-            Hola 👋 {localStorage.getItem("email")} Haz iniciado sesión 😊
+            Hola 👋 {localStorage.getItem("email")} Has iniciado sesión 😊
           </h1>
         </div> */}
         <div className="Container-InputNotes">

@@ -14,14 +14,14 @@ function Home() {
   };
 
   return (
-    <div className="Container-home">
+    <div className="container-home">
       <img
-        className="Img-title"
+        className="img-title"
         src={require("../../img/text3.gif")}
         alt="Img title"
       />
       <img
-        className="Img-home"
+        className="img-home"
         src={require("../../img/post5.png")}
         alt="Img newpostit"
       />
