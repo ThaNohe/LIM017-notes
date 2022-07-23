@@ -1,21 +1,14 @@
 /*Tablet vertical*/
 @media only screen and (min-width: 810px) /* and (max-width: 1180px) */ {
   .container-for{
+    background-image: url('../../img/fondo.png');
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .Container-intro {
-    margin-top: 45vmin;
-    padding: 0;
-    width: 45vw;
-  }
-  /* h2 {
-    margin-top: 45vmin;
-  } */
-
-  .Form-log {
+  .form-log {
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -43,7 +36,7 @@
     align-items: center;
   }
 
-  .Img-register {
+  .img-register {
     width: 35vmin;
     margin-left: 1vmin;
   }
@@ -93,7 +86,7 @@
     text-align: center;
   }
 
-  .Error{
+  .error{
     margin-top: -5px;
   } 
 
@@ -102,7 +95,7 @@
     font-size: 40px;
   }
 
-  .Img-google {
+  .img-google {
     width: 25px;
     height: 25px;
     margin-top: 5px;

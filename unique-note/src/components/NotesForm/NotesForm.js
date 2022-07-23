@@ -100,20 +100,14 @@ function NotesForm() {
         <AddTitleComponent/>
       </div>
     
-      <div className="Container-Gen">
-       {/*  <div className="Container-WelcomeUser">
-          <h1>
-            {" "}
-            Hola 👋 {localStorage.getItem("email")} Has iniciado sesión 😊
-          </h1>
-        </div> */}
-        <div className="Container-InputNotes">
+      <div className="container-gen">
+        <div className="container-input-notes">
           <div>
-            <div className="titleList">
+            <div className="title-list">
               <h2>Escribe una nota</h2>
             </div>
             <input
-              className="titleNote"
+              className="title-note"
               type="text"
               name="notestitle"
               placeholder="Titulo de la  nota"
@@ -122,7 +116,7 @@ function NotesForm() {
               /* onChange={ e => setNotes(e.target.value)} */
             />
             <textarea
-              className="textareaNote"
+              className="textarea-note"
               name="description"
               placeholder="Escribe una nota..."
               onChange={handleInputChange}
@@ -133,7 +127,7 @@ function NotesForm() {
             {updatingNote ? (
               <button
                 onClick={(e) => updateNote(e)}
-                className="button-components-saveNotes"
+                className="btn-comp-save-notes"
               >
                 {" "}
                 Editar{" "}
@@ -141,7 +135,7 @@ function NotesForm() {
             ) : (
               <button
                 onClick={(e) => saveNotes(e)}
-                className="button-components-saveNotes"
+                className="btn-comp-save-notes"
               >
                 {" "}
                 Guardar{" "}
@@ -150,17 +144,17 @@ function NotesForm() {
           </div>
         </div>
 
-        <div className="Container-PrintNotes">
+        <div className="container-print-notes">
           <div className="titleList">
             <h2>Lista de Notas</h2>
           </div>
-          <div className="Container-Notes">
+          <div className="container-notes">
             {list.map((listes) => (
-              <div className="Container-textareaNoteGenerate" key={listes.id}>
-                <div className="Text-Title">
+              <div className="container-textarea-note-generate" key={listes.id}>
+                <div className="text-title">
                   <p>Titulo:{listes.notestitle}</p>
                 </div>
-                <div className="Text-Descript">
+                <div className="text-descript">
                   <p>Descripcion:{listes.description}</p>
                 </div>
 

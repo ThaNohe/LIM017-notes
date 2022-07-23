@@ -5,12 +5,7 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../../context/authContext'
 
-/* import { Link } from 'react-router-dom'
-import { collection, getDocs, getDoc, deleteDoc } from 'firebase/firestore'
-import { db } from '../../lib/firebaseConfig'
-import { useAuth } from '../../context/authContext'; */
-
- function Register() {
+function Register() {
   //uso de hooks y método useState
   const [user, setUser] = useState({
      email: '',
@@ -56,11 +51,11 @@ import { useAuth } from '../../context/authContext'; */
   
 
    return (
-    <div className='Container-for'>
-    <form className='Form-reg'  onSubmit={handleSubmit}  >
+    <div className='container-for'>
+    <form className='form-reg'  onSubmit={handleSubmit}  >
       <img 
-      className='Img-register' src={require('../../img/post3.png')}
-      alt='Img Notes'/>
+      className='img-register' src={require('../../img/post3.png')}
+      alt='img Notes'/>
       <h1 className='title-div'>Registrese</h1>
       <input 
       type='text'

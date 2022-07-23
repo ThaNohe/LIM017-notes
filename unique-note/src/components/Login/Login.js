@@ -4,11 +4,6 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../../context/authContext';
 
-/* import { Link } from 'react-router-dom'
-import { collection, getDocs, getDoc, deleteDoc } from 'firebase/firestore'
-import { db } from '../../lib/firebaseConfig'
-import { useAuth } from '../../context/authContext'; */
-
  function Login () {
  
   const [email, setEmail] = useState('');
@@ -56,9 +51,9 @@ import { useAuth } from '../../context/authContext'; */
 
   return (
 <div className='container-for'>
-    <form className='Form-log' onSubmit={handleSubmit} >
+    <form className='form-log' onSubmit={handleSubmit} >
       <img 
-      className='Img-register' src={require('../../img/post3.png')}
+      className='img-register' src={require('../../img/post3.png')}
       alt='Img Notes'/>
       <h1 className='title-div'>Inicia sesión</h1>
       
@@ -79,7 +74,7 @@ import { useAuth } from '../../context/authContext'; */
       required
        onChange={(e)=> setPassword(e.target.value)} 
       />
-      <div className='Error'></div>
+      <div className='error'></div>
       <p>{error}</p>
 
       <div className='content-btn'>
@@ -90,7 +85,7 @@ import { useAuth } from '../../context/authContext'; */
       <button onClick={handleGoogleSignin} className='button-google'> 
       Continue con Google
       {<img
-        className="Img-google"
+        className="img-google"
         src={require("../../img/google.png")}
         alt="Img google"
               />}
