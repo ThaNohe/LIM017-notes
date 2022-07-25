@@ -1,7 +1,6 @@
 import React from 'react';
 import './Register.css';
 import { useState, useContext } from 'react';
-/* import { useAuth } from '../../context/authContext'*/
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../../context/authContext'
 
