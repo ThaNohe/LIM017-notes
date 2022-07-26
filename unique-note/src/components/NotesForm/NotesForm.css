@@ -1,4 +1,4 @@
-
+/*Desktop Horizontal*/
 .container-gen{
     display: flex;
     justify-content: center;
@@ -9,7 +9,6 @@
    position: relative;
    top: 0;
    z-index: 1500;
- 
 }
 
 .container-input-notes{

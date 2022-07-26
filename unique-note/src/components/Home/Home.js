@@ -35,7 +35,7 @@ function Home() {
           id="btnLog"
           className="button-components-h1"
         >
-          Inicia Sesión{" "}
+          Inicia Sesión
         </button>
         <button
           onClick={btnforReg}
@@ -43,7 +43,7 @@ function Home() {
           id="btnReg"
           className="button-components-h2"
         >
-          Registrarse{" "}
+          Registrarse
         </button>
       </div>
     </div>

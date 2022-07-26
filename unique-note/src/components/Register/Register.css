@@ -1,5 +1,4 @@
-/*Tablet vertical*/
-@media only screen and (min-device-width: 810px) {
+/*Desktop y Tablet Horizontal*/
   .container-for {
     background-image: url("../../img/fondo.png");
     height: 100vh;
@@ -51,4 +50,3 @@
     border: none;
     outline: none;
   }
-} ;
