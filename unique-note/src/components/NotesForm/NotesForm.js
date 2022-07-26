@@ -145,7 +145,7 @@ function NotesForm() {
         </div>
 
         <div className="container-print-notes">
-          <div className="titleList">
+          <div className="title-list">
             <h2>Lista de Notas</h2>
           </div>
           <div className="container-notes">
