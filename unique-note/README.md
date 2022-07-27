@@ -11,8 +11,9 @@
 *[4.2 Prototipo](#42-prototipo)
 *[4.3 Vista Final de Proyecto](#43-vista-final-de-proyecto)
 *[4.4 Tecnologías Usadas](#44-tecnologías-usadas)
-*[4.5 Autora](#45-autora)
+*[4.5 Autora](#45-autora) 
 
+***
 # 1. Resumen del Proyecto 🔎
 UNIQUE NOTES es una aplicación que permite tomar notas, podemos crear, editar, eliminar y consultar en cualquier momento. 
 Para acceder a la web el usuario debe registrarse y logearse, ya en su cuenta podrá generar de notas ya cuando finalice podrá cerrar sesión.
