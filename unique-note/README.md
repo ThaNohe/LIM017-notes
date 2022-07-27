@@ -1,10 +1,6 @@
 
 ## UNIQUE NOTES
-      <img
-        className="img-title"
-        src={require("../../img/text3.gif")}
-        alt="Img title"
-        />
+<h1 align="center"><img src="https://i.postimg.cc/NMT62sc5/text3.gif" width="300"/></h1>
 
 # Resumen del Proyecto 🔎
 UNIQUE NOTES es una aplicación que permite tomar notas, podemos crear, editar, eliminar y consultar en cualquier momento. 
@@ -45,19 +41,19 @@ Toda persona que quiere mantener apuntes, tareas, actividades, etc. guardadas di
 
 ## Prototipo
 * Prototipo Inicial (alta fidelidad)
-https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Prototipo%20Inicial.png
+![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Prototipo%20Inicial.png)
 
 ## Vista Final de Proyecto
 * Home
-https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Home.png
+![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Home.png)
 
 * Login & Register
-https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Login.png
+![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Login.png)
 
-https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Register.png
+![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Register.png)
 
 * NotesForm
-https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/NotesForm.png
+![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/NotesForm.png)
 
 ## Tecnologías Usadas
 * React
