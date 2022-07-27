@@ -3,15 +3,15 @@
 <h1 align="center"><img src="https://i.postimg.cc/NMT62sc5/text3.gif" width="300"/></h1>
 
 ## Índice
-*[1. Resumen del Proyecto](#1-resumen-del-proyecto-🔎)
-*[2. Usuarios del producto](#2-usuarios-del-producto-👩‍🏫👨‍💼👩‍🎓👨‍🎓)
-*[3. Características del Proyecto](#3-características-del-proyecto)
-*[4. Desarrollo del Proyecto](#4-desarrollo-del-proyecto)
-*[4.1 Historias de usuarios](#41-historias-de-usuarios)
-*[4.2 Prototipo](#42-prototipo)
-*[4.3 Vista Final de Proyecto](#43-vista-final-de-proyecto)
-*[4.4 Tecnologías Usadas](#44-tecnologías-usadas)
-*[4.5 Autora](#45-autora) 
+* [1. Resumen del Proyecto](#1-resumen-del-proyecto-🔎)
+* [2. Usuarios del producto](#2-usuarios-del-producto-👩‍🏫👨‍💼👩‍🎓👨‍🎓)
+* [3. Características del Proyecto](#3-características-del-proyecto)
+* [4. Desarrollo del Proyecto](#4-desarrollo-del-proyecto)
+* [4.1 Historias de usuarios](#41-historias-de-usuarios)
+* [4.2 Prototipo](#42-prototipo)
+* [4.3 Vista Final de Proyecto](#43-vista-final-de-proyecto)
+* [4.4 Tecnologías Usadas](#44-tecnologías-usadas)
+* [4.5 Autora](#45-autora) 
 
 ***
 ## 1. Resumen del Proyecto 🔎
