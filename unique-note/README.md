@@ -1,70 +1,74 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## UNIQUE NOTES
+      <img
+        className="img-title"
+        src={require("../../img/text3.gif")}
+        alt="Img title"
+        />
 
-## Available Scripts
+# Resumen del Proyecto 🔎
+UNIQUE NOTES es una aplicación que permite tomar notas, podemos crear, editar, eliminar y consultar en cualquier momento. 
+Para acceder a la web el usuario debe registrarse y logearse, ya en su cuenta podrá generar de notas ya cuando finalice podrá cerrar sesión.
+Este proyecto fue realizado usando la librería React, JS y Firebase
 
-In the project directory, you can run:
+# Usuarios del producto 👩‍🏫👨‍💼👩‍🎓👨‍🎓
+Toda persona que quiere mantener apuntes, tareas, actividades, etc. guardadas digital.
 
-### `npm start`
+# Características del Proyecto
+* La aplicación es Single Page App, responsive y funciona offline.
+* La aplicación cuenta con test unitarios de sus componentes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Desarrollo del Proyecto
+## Historias de usuarios
+| **Historia de Usuario 01** : Creación de Cuenta, iniciar y cerrar sesión | 
+| -------------------------------------------------------------------| 
+|  Yo como usuaria  debo poder crear una cuenta y autenticarme       |
+|  usando login de Google para acceder a mis notas.                  |
+ 
+| **Historia de Usuario 02** : Tomar Notas                           | 
+| -------------------------------------------------------------------| 
+| Yo como usuaria  quiero tomar nota para no depender de mi mala memoria |
+| y tener presente en todo momento los apuntes ó cosas importantes       |
+| que antes escribía en papel.|
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| **Historia de Usuario 03** : Ver Notas                             | 
+| -------------------------------------------------------------------| 
+|  Yo como usuaria quiero leer mis notas para recordar lo que escribí antes.|
 
-### `npm test`
+| **Historia de Usuario 04** : Edición de Notas                             | 
+| -------------------------------------------------------------------| 
+|  Yo como usuaria quiero editar notas para poder modificar lo que escribí antes.|
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| **Historia de Usuario 05** : Borrado de Notas                             | 
+| -------------------------------------------------------------------| 
+|  Yo como usuaria quiero borrar una nota para no volver a verla..|
 
-### `npm run build`
+## Prototipo
+* Prototipo Inicial (alta fidelidad)
+https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Prototipo%20Inicial.png
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Vista Final de Proyecto
+* Home
+https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Home.png
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Login & Register
+https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Login.png
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Register.png
 
-### `npm run eject`
+* NotesForm
+https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/NotesForm.png
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tecnologías Usadas
+* React
+* JavaScript
+* HTML
+* CSS
+* Firebase
+* Git
+* GitHub
+* Figma
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Autora
+💛 Thalía Cuadros 👩‍💻
