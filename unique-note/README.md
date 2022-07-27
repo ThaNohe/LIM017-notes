@@ -2,20 +2,31 @@
 ## UNIQUE NOTES
 <h1 align="center"><img src="https://i.postimg.cc/NMT62sc5/text3.gif" width="300"/></h1>
 
-# Resumen del Proyecto 🔎
+## Índice
+*[1. Resumen del Proyecto]
+*[2. Usuarios del producto]
+*[3. Características del Proyecto]
+*[4. Desarrollo del Proyecto]
+*[4.1 Historias de usuarios]
+*[4.2 Prototipo]
+*[4.3 Vista Final de Proyecto]
+*[4.4 Tecnologías Usadas]
+*[4.5 Autora]
+
+# 1. Resumen del Proyecto 🔎
 UNIQUE NOTES es una aplicación que permite tomar notas, podemos crear, editar, eliminar y consultar en cualquier momento. 
 Para acceder a la web el usuario debe registrarse y logearse, ya en su cuenta podrá generar de notas ya cuando finalice podrá cerrar sesión.
 Este proyecto fue realizado usando la librería React, JS y Firebase
 
-# Usuarios del producto 👩‍🏫👨‍💼👩‍🎓👨‍🎓
+# 2. Usuarios del producto 👩‍🏫👨‍💼👩‍🎓👨‍🎓
 Toda persona que quiere mantener apuntes, tareas, actividades, etc. guardadas digital.
 
-# Características del Proyecto
+# 3. Características del Proyecto
 * La aplicación es Single Page App, responsive y funciona offline.
 * La aplicación cuenta con test unitarios de sus componentes.
 
-# Desarrollo del Proyecto
-## Historias de usuarios
+# 4. Desarrollo del Proyecto
+## 4.1 Historias de usuarios
 | **Historia de Usuario 01** : Creación de Cuenta, iniciar y cerrar sesión | 
 | -------------------------------------------------------------------| 
 |  Yo como usuaria  debo poder crear una cuenta y autenticarme       |
@@ -39,11 +50,11 @@ Toda persona que quiere mantener apuntes, tareas, actividades, etc. guardadas di
 | -------------------------------------------------------------------| 
 |  Yo como usuaria quiero borrar una nota para no volver a verla..|
 
-## Prototipo
+## 4.2 Prototipo
 * Prototipo Inicial (alta fidelidad)
 ![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Prototipo%20Inicial.png)
 
-## Vista Final de Proyecto
+## 4.3 Vista Final de Proyecto
 * Home
 ![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/Home.png)
 
@@ -55,7 +66,7 @@ Toda persona que quiere mantener apuntes, tareas, actividades, etc. guardadas di
 * NotesForm
 ![Imagen Text](https://github.com/ThaNohe/LIM017-notes/blob/sprint5/unique-note/src/img/NotesForm.png)
 
-## Tecnologías Usadas
+## 4.4 Tecnologías Usadas
 * React
 * JavaScript
 * HTML
@@ -65,6 +76,5 @@ Toda persona que quiere mantener apuntes, tareas, actividades, etc. guardadas di
 * GitHub
 * Figma
 
-
-## Autora
+## 4.5 Autora
 💛 Thalía Cuadros 👩‍💻
